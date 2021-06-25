@@ -1,0 +1,62 @@
+* {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.formContainer {
+    justify-content: center;
+    padding: 10px;
+}
+
+.formContainer input {
+    margin: 10px;
+    justify-content: center;
+    padding: 10px;
+    border: 1px solid #888;
+    outline-color: rgb(98, 169, 240);
+    width: 100%;
+}
+
+.formContainer textarea {
+    margin: 7px;
+    justify-content: center;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #888;
+    outline-color: rgb(98, 169, 240);
+    resize: none;
+    overflow: auto;
+    position: relative;
+    left: 3px;
+}
+
+.formContainer button {
+    position: relative;
+    margin: 10px;
+    width: 30%;
+    padding: 6px;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+    background-color: #1890ff;
+    border-radius: 3.5px;
+    color: #ffffff;
+}
+
+@media only screen and (max-width: 600px) {
+    .formContainer button {
+        width: 42%;
+    }
+}
+
+.formContainer button:hover {
+    color: #888;
+    background-color: rgb(95, 148, 255);
+    color: #ffffff;
+    outline: #888;
+}
+
+#product_Img {
+    cursor: pointer;
+}

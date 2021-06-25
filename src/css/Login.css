@@ -1,0 +1,104 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+.Fom_container{
+    justify-content: center;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    position: relative;
+    top: 15rem;
+
+}
+
+
+.Fom_container button{
+    position: relative;
+    margin: 10px;
+    width: 30%;
+    padding: 10px;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+    font-size: large;
+    background-color: #1890ff;
+    border-radius: 10.5px;
+    color:#ffffff;
+}
+
+
+.Fom_container button:hover{
+    color: #888;
+    background-color: rgb(95, 148, 255);
+    color: #ffffff;
+    outline: #888;
+}
+
+.card{
+    width: 100%;
+}
+
+.text-center{
+     font-family: 'Roboto', sans-serif;  
+}
+
+ #email {
+     height: 50px;
+ }
+
+ #password{
+    height: 50px;
+ }
+
+.Forgot_Password{
+    font-size: 15px;
+    font-weight: bolder;
+ }
+
+ #needAccount{
+    font-size: 15px;
+    font-weight: bolder;
+ }
+
+ 
+ @media only screen and (max-width: 765px) {
+    .Fom_container  {
+    width: 100%;
+    }
+  } */
+
+#email {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+#password {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+#passwordConf {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+#email[type="email"] {
+    border: none;
+    border-bottom: 2px solid rgb(24, 144, 255);
+}
+
+#password[type="password"] {
+    border: none;
+    border-bottom: 2px solid rgb(24, 144, 255);
+}
+
+#passwordConf[type="password"] {
+    border: none;
+    border-bottom: 2px solid rgb(24, 144, 255);
+}

@@ -1,0 +1,77 @@
+body {
+    background: #e6ebf1;
+}
+
+.storebody {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+    height: 100rem;
+    top: 1px;
+    width: 100%;
+    background: hsl(214, 100%, 95%);
+    position: relative;
+}
+.coverimage {
+    height: 25em;
+    width: 100%;
+}
+
+.brand__Info {
+    position: relative;
+    bottom: 1px;
+    right: 10px;
+    padding: 20px;
+}
+
+.brand__name {
+    position: relative;
+    top: 10px;
+}
+
+.brand__Bio {
+    position: relative;
+    top: 20px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a + a {
+    margin-left: 65px;
+}
+
+.tabs {
+    position: relative;
+    bottom: 20px;
+}
+
+.site__header {
+    background: #ffffff;
+    border: 1px solid #d6cfb9;
+    padding: 25px;
+    font-family: tahoma, "Courier New", Courier, monospace;
+    border: 0.1px solid #cfc6c6d7;
+    border-radius: 5px;
+    height: auto;
+}
+
+.brand__name:hover {
+    /* border-top: 0.1px solid dodgerblue;
+  border-left: 0.1px solid rgb(111, 112, 184);
+  border-right: 0.1px solid rgb(111, 112, 184);
+  color: rgb(36, 83, 226); */
+    cursor: pointer;
+}
+
+.footer {
+    background: #ffffff;
+    border: 1px solid #d6cfb9;
+    padding: 1px;
+    justify-content: center;
+    height: 10%;
+    width: 100%;
+    position: relative;
+    top: 51%;
+    border-radius: 2px;
+}

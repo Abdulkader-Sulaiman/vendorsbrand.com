@@ -1,0 +1,15 @@
+import authReducer from './authReducer'
+import productReducer from './productReducer'
+import {combineReducers} from 'redux';
+import { firestoreReducer } from 'redux-firestore';
+
+
+
+// function to combine our Reducers into One
+const rootReducer = combineReducers({
+ auth: authReducer,
+ product: productReducer,
+ firestore: firestoreReducer
+})
+
+export default rootReducer

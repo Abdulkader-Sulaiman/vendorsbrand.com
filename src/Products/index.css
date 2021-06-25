@@ -1,0 +1,40 @@
+[class~='ant-col'] {
+    background: transparent;
+    border: 0;
+  }
+  [class~='ant-col'] > div {
+    font-size: 14px;
+    line-height: 120px;
+    background: #0092ff;
+    border-radius: 4px;
+    margin: auto;
+    text-align: center;
+    color: #f9f9f9;
+    width: 60%;  
+    height: 160px;
+    padding: 20px;
+ 
+  }
+  pre {
+    padding: 8px 16px;
+    font-size: 13px;
+    background: #3540d4;
+    border-radius: 6px;
+ 
+  }
+
+ 
+
+
+  pre.demo-code {
+    direction: ltr;
+    background: #3540d4;
+  }
+  .ant-col {
+    padding: 0;
+     
+  }
+  [data-theme="dark"] [class~='ant-col'] > div {
+    background: #028ac8;
+    background: #3540d4;
+  }

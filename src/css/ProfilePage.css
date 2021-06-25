@@ -1,0 +1,43 @@
+.BrandProfile {
+    padding: 10px;
+    position: relative;
+    margin: 30px;
+    justify-content: space-between;
+}
+
+.brand__Info {
+}
+.founded__By {
+    padding: 10px;
+    position: relative;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.founded__In {
+    padding: 10px;
+    position: relative;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.industry {
+    padding: 10px;
+    position: relative;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.headquarters {
+    padding: 10px;
+    position: relative;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.employees__Number {
+    padding: 10px;
+    position: relative;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
