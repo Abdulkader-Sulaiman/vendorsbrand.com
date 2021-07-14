@@ -10,6 +10,9 @@ import VendorsProfile from '../BrandProfile/VendorsProfile'
 import {useParams} from 'react-router-dom'
 import '../../css/Vendors_Page.css';
 import ProductGrid from '../../Products/ProductGrid'
+import { useTranslation } from "react-i18next";
+
+
 
     const mystyle = {
         color: "white",
@@ -26,7 +29,9 @@ import ProductGrid from '../../Products/ProductGrid'
     const [loading, setLoading ] = useState(false)
     const ref = firebase.firestore().collection('Brands');
     var user = firebase.auth().currentUser;
+    const { t } = useTranslation();
 
+    
     //REALTIME GET FUNCTION
     function getBrand() {
         setLoading(true);
@@ -64,7 +69,7 @@ import ProductGrid from '../../Products/ProductGrid'
   <div className="card" style={{width: "18rem"}}>
   <div className="card-body">
   <h4 className="card-title">{Brand.Brandname}</h4>
-<Link to={Brand.Brandname} class="btn btn-primary">View Store</Link>   
+<Link to={Brand.Brandname} class="btn btn-primary">{t("View Store")}</Link>   
   </div>
 </div>
 

@@ -11,6 +11,8 @@ import '../css/UploadProduct.css';
 import { formik, Field, Form } from 'formik';
 import Input from '@material-ui/core/Input';
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
 
     const useStyles = makeStyles((theme) => ({
     modal: {
@@ -37,7 +39,9 @@ function UploadProduct() {
     const [loading, setLoading, ] = useState(false)
     const [posts, SetPosts ] = useState([])
     const [Brands, SetBrands] = useState([]);
-  const [Brandname, setBrandname] = useState("");
+    const [Brandname, setBrandname] = useState("");
+    const [ProductName, setProductName] = useState("");
+
     const handleOpen = () => {
     setOpen(true);
     };
@@ -49,7 +53,7 @@ function UploadProduct() {
     document.location.reload();
   }
 
-
+  const { t } = useTranslation();
   const ref = firebase.firestore().collection('user.uid');
     
 //REALTIME GET FUNCTION
@@ -95,9 +99,12 @@ function getBrandData() {
             db.collection("products").doc(docID).set({
                 timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                 images: fileDownloadUrls,
-                Brandname: 'B1',
+                // Brandname: 'B1',
                 userId:userId,
-                docID: docID
+                docID: docID,
+                productName: ProductName,
+                Price: productPrice,
+                description: PrductDescription
             })
           })
           .catch(err => console.log(err));
@@ -141,10 +148,6 @@ function getBrandData() {
           })
           .catch(err => console.log(err));
 
-
-
-
-
            setOpen(false);
          setInterval(function(){refrashPage() }, 20000);
     };
@@ -176,25 +179,24 @@ function getBrandData() {
   
         <Fade in={open}>
     <div className={classes.paper}>
-    <h2 id="transition-modal-title">Products upload Center</h2>
+    <h2 id="transition-modal-title">{t("Products upload Center")}</h2>
      <p  id="transition-modal-description">
-     Add a new Product. 
+     {t("Add a new Product.")}
         </p>
     <main> 
         
      <form className="formContainer" reset>
       <progress className="imageupload__progress" value={progress} max="100" />
       <div className="">
-        <h5>Product Image</h5>
-        <input type="file" id="uploadCaptureInputFile" onChange={handleChange} multiple required accept="image/png, image/jpeg"/>
-        {/* <input type="text" onChange={(e) => setBrandname(e.target.value)} value={Brandname} placeholder="Enter a Product Name" required/> */}
-        {/* <input type="text" onChange={(e) => setPrductPrice(e.target.value)} value={productPrice} placeholder="Enter a Product Price" required />
-        <textarea onChange={(e) => setPrductDescription(e.target.value)} value={PrductDescription} placeholder="Product details" required/> */}
+        <h5>{t("Select Product Images")}</h5>
+        <input type="file" id="uploadCaptureInputFile" onChange={handleChange} multiple required accept="image/png, image/jpeg" />
+        <input type="text" onChange={(e) => setProductName(e.target.value)} value={ProductName} placeholder={t("Enter a Product Name")} required/>  
+        <input type="text" onChange={(e) => setPrductPrice(e.target.value)} value={productPrice} placeholder={t("Enter a Product Price")} required />
+        <textarea onChange={(e) => setPrductDescription(e.target.value)} value={PrductDescription} placeholder={t("Enter Product description")}  required/>  
       </div>
       <Button  className="imageupload__button" onClick={handleUpload}>
-      Upload</Button>
-      
-    <Button onClick={handleClose}>Cancel</Button>
+      {t("Upload")}</Button>
+    <Button onClick={handleClose}>{t("Cancel")}</Button>
     </form>
                 </main>
             </div>

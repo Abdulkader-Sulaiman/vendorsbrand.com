@@ -14,16 +14,18 @@ import { Form, Alert } from "react-bootstrap"
 import '../css/Signup.css';
 import { RocketTwoTone } from '@ant-design/icons';
 import { Link } from "react-router-dom"
+import Footer from '../components/footer/SignUp_footer'
+import { useTranslation } from "react-i18next";
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
+      {/* {'Copyright © '}
       <Link color="inherit" to="/">
        Vendorsbrand
       </Link>{' '}
       {new Date().getFullYear()}
-      {'.'}
+      {'.'} */}
     </Typography>
   );
 }
@@ -57,7 +59,7 @@ export default function SignUp() {
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
   const history = useHistory()
-
+  const { t } = useTranslation();
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -78,11 +80,11 @@ export default function SignUp() {
 
   return (
     <>
-     <Container component="main" maxWidth="xs">
+     <Container component="main" maxWidth="xs" style={{backgroundColor:'#fff', position: 'relative',top:"30px", padding:'30px'}}>
       <CssBaseline />
       <div className={classes.paper}>
         <Typography component="h1" variant="h5">
-        Sign Up
+        {t("Sign Up")}
         </Typography>
         <br />
           {error && <Alert variant="danger">{error}</Alert>}
@@ -91,7 +93,7 @@ export default function SignUp() {
           <Grid container spacing={2}>
           <Grid tem xs={12}>
        
-              <Form.Label>Email</Form.Label>
+              <Form.Label>{t("Email")}</Form.Label>
               <Form.Control type="email" 
               ref={emailRef} required 
                fullWidth
@@ -106,7 +108,7 @@ export default function SignUp() {
             
            </Grid>
            <Grid tem xs={12}>
-              <Form.Label>Password</Form.Label>
+              <Form.Label>{t("Password")}</Form.Label>
               <Form.Control type="password" 
               ref={passwordRef} required  
               fullWidth 
@@ -122,7 +124,7 @@ export default function SignUp() {
               />
             </Grid>
             <Grid item xs={12}>
-              <Form.Label>Password Confirmation</Form.Label>
+              <Form.Label>{t("Password Confirmation")}</Form.Label>
               <Form.Control type="password" ref={passwordConfirmRef} required fullWidth  id="passwordConf"/>
             </Grid>
             <Button 
@@ -135,22 +137,23 @@ export default function SignUp() {
             color:'white'
             }}
             >
-              Sign Up
+              {t("Sign Up")}
             </Button>
             </Grid>
-         
           </Form>
     </div>
  
     <Grid item>
       <div className="w-100 text-center mt-2">
-      Already have an account? <Link to="/login" variant="body2">Sign in</Link>
+      {t("Already have an account?")}    <Link to="/login" variant="body2">{t("Sign In")}</Link>
       </div>
       </Grid>
       <Box mt={5}>
         <Copyright />
       </Box>
       </Container>
+      <Footer /> 
     </>
   );
 }
+

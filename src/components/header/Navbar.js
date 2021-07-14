@@ -84,6 +84,7 @@ class Navbar extends Component {
                         bottom:'20px',
                         }} />
 					</Drawer>
+                  
 				</div>
 			</nav>
 		);

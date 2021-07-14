@@ -6,6 +6,7 @@
 .formContainer {
     justify-content: center;
     padding: 10px;
+  
 }
 
 .formContainer input {
@@ -60,3 +61,5 @@
 #product_Img {
     cursor: pointer;
 }
+
+

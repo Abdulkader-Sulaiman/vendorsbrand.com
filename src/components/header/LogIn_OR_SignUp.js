@@ -9,6 +9,10 @@ import CustomizedMenus from "./Dropdown_Menu";
 import Avater from '../User_Avater';
 import "../../css/LeftMenu.css";
 import '../../css/LogIn_OR_SignUp.css';
+import { useTranslation } from "react-i18next";
+import LanguageSelect from "../../languageSelect";
+
+
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 const { useBreakpoint } = Grid;
@@ -16,7 +20,7 @@ const { useBreakpoint } = Grid;
 const LeftMenu = () => {
     // <BrowserRouter></BrowserRouter>
     const { md } = useBreakpoint();
-   
+    const { t } = useTranslation();
     //  let userId = firebase.auth().currentUser.uid;
 
     return (
@@ -26,15 +30,28 @@ const LeftMenu = () => {
             <hr />
             <Menu.Item className="SignUp">
 
-         <h5 ><Link to="SignUp" id="SignUp" >Sign Up</Link></h5>
-
+         <h5 ><Link to="SignUp" id="SignUp" >
+         {t("Sign Up")}
+         </Link></h5>
+      
             </Menu.Item>
             <hr />
             <Menu.Item className="">
-
-            <h5><Link id="LogIn" to="/login">Log In</Link></h5>
-
+            <h5><Link id="LogIn" to="/login">
+            {t("Log In")}
+            </Link></h5>
             </Menu.Item>
+{/*  
+            <LanguageSelect /> */}
+           
+            <hr />
+
+            <Menu.Item className="">
+          
+            <LanguageSelect />
+           
+            </Menu.Item>
+
             <hr />
         </Menu>
     );

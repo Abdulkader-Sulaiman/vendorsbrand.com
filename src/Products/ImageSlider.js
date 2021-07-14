@@ -6,6 +6,10 @@ import firebase, { db } from "../firebase";
 import MenuItem from "../Products/MenuItem";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { Card, CardMedia, CardContent, CardActions, Typography, IconButton } from '@material-ui/core';
+import { AddShoppingCart } from '@material-ui/icons';
+import useStyles from './styles';
+
 
 const ImageSlider = ({
     Brandname,
@@ -15,11 +19,13 @@ const ImageSlider = ({
     imageUrl,
     userId,
     docID,
+    product, 
+    onAddToCart 
 }) => {
     const [posts, SetPosts] = useState([]);
     const [Brands, SetBrands] = useState([]);
     const uid = firebase.auth().currentUser;
-
+    const classes = useStyles();
     const [loading, setLoading] = useState(false);
     {
         firebase.auth().currentUser !== null &&
@@ -46,11 +52,20 @@ const ImageSlider = ({
         // eslint-disable-next-line
     }, []);
 
-
+ 
+        const settings = {
+        //   dots: true,
+          infinite: true,
+          speed: 500,
+          slidesToShow: 1,
+          slidesToScroll: 1
+        };
    
     return (
         <div className="container">
-            {firebase.auth().currentUser !== null &&
+           
+     {/* delete icon */}
+     {firebase.auth().currentUser !== null &&
                 firebase.auth().currentUser.uid === userId && (
                     <MenuItem docID={docID} />
                 )}
@@ -67,7 +82,7 @@ const ImageSlider = ({
                 );
             })}
 
-            <Slider  >
+            <Slider {...settings}>
                 {imageUrl.map((imageUrl, i) => (
                     <img
                         key={i}
@@ -75,11 +90,46 @@ const ImageSlider = ({
                         src={imageUrl}
                         alt="Product-Image"
                     />
+                 
                 ))}
+
+              
+           
                 {/* <h3 className="description">{productName}</h3> 
     <p className="description">{description}</p>   
     <h1 className="price">{price}</h1> */}
             </Slider>
+         
+
+        <Card className={classes.root} >
+      <CardMedia image={'image'} title={'Product Name'} />
+      
+      <CardContent>
+        <div className={classes.cardContent} >
+       
+          <Typography gutterBottom variant="h5" component="h2"style={{position:'relative', marginTop:'50px'}} >
+            {productName}
+          </Typography>
+
+          <Typography gutterBottom variant="h5" component="h2" style={{position:'relative', marginTop:'50px'}}>
+            ${price}
+          </Typography>
+        </div>
+        <Typography dangerouslySetInnerHTML={{ __html: description }} variant="body2" color="textSecondary" component="p" />
+
+
+      </CardContent>
+      <CardActions disableSpacing className={classes.cardActions}>
+        <IconButton aria-label="Add to Cart" >
+          <AddShoppingCart />
+        </IconButton>
+      </CardActions>
+    </Card>
+
+
+
+
+
         </div>
     );
 };

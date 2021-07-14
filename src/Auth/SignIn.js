@@ -14,27 +14,39 @@ import { Form, Alert } from "react-bootstrap"
 import '../css/Signup.css';
 import { RocketTwoTone } from '@ant-design/icons';
 import { Link } from "react-router-dom"
+import Footer from '../components/footer/SignIn_footer'
+import { useTranslation } from "react-i18next";
 
 
 function Copyright() {
+
     return (
       <Typography variant="body2" color="textSecondary" align="center">
-        {'Copyright © '}
+        {/* {'Copyright © '}
         <Link color="inherit" to="/">
          Vendorsbrand
         </Link>{' '}
         {new Date().getFullYear()}
-        {'.'}
+        {'.'} */}
+        
+
       </Typography>
+      
     );
   }
-  
+
   const useStyles = makeStyles((theme) => ({
+    
     paper: {
       marginTop: theme.spacing(8),
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
+  
+      bottom:"40px",
+      position: 'relative',
+     borderRadius:'20px',
+     
     },
     avatar: {
       margin: theme.spacing(1),
@@ -43,10 +55,12 @@ function Copyright() {
     form: {
       width: '100%', // Fix IE 11 issue.
       marginTop: theme.spacing(3),
+    
     },
     submit: {
       margin: theme.spacing(3, 0, 2),
     },
+  
   }));
   
   export default function Login() {
@@ -74,83 +88,96 @@ function Copyright() {
 
     setLoading(false)
   }
+  
+
+  const { t } = useTranslation();
 
   return (
-    <>
-    <Container component="main" maxWidth="xs">
-     <CssBaseline />
-     <div className={classes.paper}>
-     <Avatar style={{background:'#fafafa'}}>
-          <RocketTwoTone style={{fontSize:'40px'}}/>
-        </Avatar>
-       <br />
-       <Typography component="h1" variant="h5">
-       Sign In
-       </Typography>
-       <br />
-         {error && <Alert variant="danger">{error}</Alert>}
-         <Form onSubmit={handleSubmit} className={classes.form} noValidate>
-        
-         <Grid container spacing={2}>
-         <Grid tem xs={12}>
-      
-             <Form.Label>Email</Form.Label>
-             <Form.Control type="email" 
-             ref={emailRef} required 
-              fullWidth
-              variant="outlined"
-               required
-               fullWidth
-               id="email"
-               label="Email Address"
-               name="email"
-               autoComplete="email"
-              />
-           
-          </Grid>
-          <Grid tem xs={12}>
+      <>
+          <Container component="main" maxWidth="xs" style={{backgroundColor:'#fff', position: 'relative',top:"100px", padding:'30px'}}>
+              <CssBaseline />
+              <div className={classes.paper}>
+                  <Avatar style={{ background: "#fafafa" }}>
+                      <RocketTwoTone style={{ fontSize: "40px" }} />
+                  </Avatar>
+                  <br />
+                  <Typography component="h1" variant="h5">
+                      {t("Sign In")}  
+                  </Typography>
+                  <br />
+                  {/* <br /> */}
+                  {error && <Alert variant="danger">{error}</Alert>}
+                  <Form
+                      onSubmit={handleSubmit}
+                      className={classes.form}
+                      noValidate
+                  >
+                      <Grid container spacing={2}>
+                          <Grid tem xs={12}>
+                              <Form.Label>{t("Email")}</Form.Label>
+                              <Form.Control
+                                  type="email"
+                                  ref={emailRef}
+                                  required
+                                  fullWidth
+                                  variant="outlined"
+                                  required
+                                  fullWidth
+                                  id="email"
+                                  label="Email Address"
+                                  name="email"
+                                  autoComplete="email"
+                              />
+                          </Grid>
+                          <Grid tem xs={12}>
+                              <Form.Label>{t("Password")}</Form.Label>
+                              <Form.Control
+                                  type="password"
+                                  ref={passwordRef}
+                                  required
+                                  fullWidth
+                                  variant="outlined"
+                                  required
+                                  fullWidth
+                                  name="password"
+                                  label="Password"
+                                  type="password"
+                                  id="password"
+                                  autoComplete="current-password"
+                              />
+                          </Grid>
 
-             <Form.Label>Password</Form.Label>
-             <Form.Control type="password" 
-             ref={passwordRef} required  
-             fullWidth 
-             variant="outlined"
-               required
-               fullWidth
-               name="password"
-               label="Password"
-               type="password"
-               id="password"
-               autoComplete="current-password"
-               
-             />
-           </Grid>
+                          <Button
+                              disabled={loading}
+                              className="w-100"
+                              type="submit"
+                              fullWidth
+                              className={classes.submit}
+                              style={{
+                                  background: "rgb(24, 144, 255)",
+                                  color: "white",
+                              }}
+                          >
+                              {t("Sign In")}  
+                          </Button>
+                      </Grid>
+                  </Form>
+              </div>
 
-           <Button 
-           disabled={loading} 
-           className="w-100" 
-           type="submit"
-           fullWidth
-           className={classes.submit}
-           style={{background:'rgb(24, 144, 255)',
-           color:'white'
-           }}
-           >
-           Sign In
-           </Button>
-           </Grid>
-         </Form>
-   </div>
-
-   <Grid item>
-     <div className="w-100 text-center mt-2">
-     Don't have an account? <Link to="/signup" variant="body2">Sign Up</Link>
-     </div>
-     </Grid>
-     <Box mt={5}>
-       <Copyright />
-     </Box>
-     </Container>
-   </>
-  )
+              <Grid item>    
+                  <div className="w-100 text-center mt-2">
+                  {t("Don't have an account?")}{" "}
+                      <Link to="/signup" variant="body2">
+                          {t("Sign Up")}
+                      </Link>
+                  </div>
+              </Grid>
+              <Box mt={5}>
+                  <Copyright />
+              </Box>
+              
+          </Container>
+          <Footer />
+      </>
+  );
 }

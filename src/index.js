@@ -12,7 +12,11 @@ import { reduxFirestore, getFirestore } from 'redux-firestore';
 import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
 import fbConfig from './firebase';
 import { ReactReduxFirebaseProvider } from 'react-redux-firebase'
- 
+import "./i18n.js";
+import { useTranslation } from "react-i18next";
+
+
+
 const store = createStore(rootRenderer, 
     compose (
     applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
@@ -20,11 +24,14 @@ const store = createStore(rootRenderer,
     
     )
 );
+
+
 ReactDOM.render(
     <FirestoreProvider firebase={firebase}>
     <React.StrictMode>
        <Provider store={store}>
         <App />
+       
         </Provider>
         </React.StrictMode>
     </FirestoreProvider>,

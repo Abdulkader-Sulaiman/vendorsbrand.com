@@ -9,7 +9,7 @@ import Market from '../pages/Vendors_Page';
 import "../../css/Centered_Tabs.css";
 import { HomeTwoTone } from '@ant-design/icons';
 import { ShopTwoTone} from '@ant-design/icons';
- 
+import  AppBar  from '../header/AppBar'
 
 
 function CenteredTabs() {
@@ -22,6 +22,8 @@ function CenteredTabs() {
   return (
     <>
   <div className='header'>
+ 
+ 
   <NavbarMenu />
 
         <Tabs
@@ -35,11 +37,13 @@ function CenteredTabs() {
         <Tab label={<ShopTwoTone style={{fontSize:'30px'}}/>} style={{outline: "none", fontFamily:'initial' }} />
         {/* <Tab label="Media" style={{ outline: "none" }} /> */}
         </Tabs>
-        </div>
+        
+        </div><br />
 
       {SelectedTab === 0 && <Home2 />}
       {SelectedTab === 1 && <Market />}
       {/* {SelectedTab === 2 && <Media />} */}
+
     </>
    
   );

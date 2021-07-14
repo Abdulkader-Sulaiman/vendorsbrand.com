@@ -9,7 +9,7 @@ import { withFirestore } from "react-firestore";
 import firebase, {storage, db, auth  } from "../../firebase";
 import '../../css/Settings.css'; 
 import UploadProduct from '../../Products/UploadProduct';
-
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
     modal: {
@@ -35,7 +35,7 @@ function Settings(props) {
     const [Headquarters, setHeadquarters] = useState("");
     const [brandIndustry, setbrandIndustry] = useState("");
     const [name, setName] = useState('Tarun');
-
+    const { t } = useTranslation();
 
     let userId = firebase.auth().currentUser.uid;
     const addItem = (Brandname, write_something, foundedBy, Headquarters) => {
@@ -88,7 +88,7 @@ function Settings(props) {
                         console.error("Error writing document:", error);
                     });
                 };
-               
+
 
             const addnewItems2 = (Brandname, write_something, foundedBy, Headquarters) => {
                 db.collection('userId').doc(Brandname)
@@ -172,9 +172,9 @@ function Settings(props) {
             >
                 <Fade in={open}>
                     <div className={classes.paper}>
-                        <h2 id="transition-modal-title">Store Center</h2>
+                        <h2 id="transition-modal-title">{t("Store Settings")}</h2>
                         <p  id="transition-modal-description">
-                        Here you can Publish or edit your Store Profile.
+                        {t("Here you can Publish or edit your Store Profile.")}  
                         </p>
                         <main> 
                     <form onSubmit={handleSubmit} className="storeInfo">
@@ -184,7 +184,7 @@ function Settings(props) {
                                     onChange={handleChange}
                                     id="name"
                                     value={Brandname}
-                                    placeholder="Type your Brand Name"
+                                    placeholder= {t("Enter your Business Name")}
                                     autocomplete="false"
                                 />
                                 <textarea
@@ -193,17 +193,17 @@ function Settings(props) {
                                 onChange={handleTextarea}
                                 id="textarea"
                                 value={write_something}
-                                placeholder="Write something about your Brand"
+                                placeholder={t("Write something about your Brand")}
                                 autocomplete="false"
                                 />
-                                <h5 className="Profile_title">Additional Settings</h5>
+                                <h5 className="Profile_title">{t("Additional Settings")}</h5>
                                 <input
                                 maxLength="150"
                                     type="text"
                                     onChange={handleInput1}
                                     id="foundedBy"
                                     value={foundedBy}
-                                    placeholder="Brand Founded by"
+                                    placeholder={t("Brand Founded by")}
                                     autocomplete="false"
                                 />
                                 <input
@@ -212,7 +212,7 @@ function Settings(props) {
                                     onChange={handleInput2}
                                     id="Headquarters"
                                     value={Headquarters}
-                                    placeholder="Headquarters"
+                                    placeholder={t("Headquarters")}
                                     autocomplete="false"
                                 />  
                                 <input
@@ -221,16 +221,16 @@ function Settings(props) {
                                     onChange={handleInput3}
                                     id="brand__Industry"
                                     value={brandIndustry}
-                                    placeholder="Brand Industry"
+                                    placeholder={t("Brand Industry")}
                                     autocomplete="false"
                                 />  
                                 <button type="submit" button onClick={handleSubmit} >
-                                Save
+                                {t("Save")}
+                                 
                                 </button>
                             </form>
-                            <button className="cancel" onClick={handleClose}>Cancel</button>
+                            <button className="cancel" onClick={handleClose}>{t("Cancel")}</button>
                         </main>
-                     
                     </div>
                 </Fade>
             </Modal>

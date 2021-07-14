@@ -7,7 +7,8 @@ import { Link } from "react-router-dom";
 import CustomizedMenus from "./Dropdown_Menu";
 import Avater from '../User_Avater';
 import "../../css/LeftMenu.css";
-
+import { useTranslation } from "react-i18next";
+import LanguageSelect from "../../languageSelect";
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 const { useBreakpoint } = Grid;
@@ -15,7 +16,7 @@ const { useBreakpoint } = Grid;
 const LeftMenu = () => {
     // <BrowserRouter></BrowserRouter>
     const { md } = useBreakpoint();
-   
+    const { t } = useTranslation();
     //  let userId = firebase.auth().currentUser.uid;
 
     return (
@@ -31,8 +32,10 @@ const LeftMenu = () => {
                 <Link to="/login" onClick={() => auth.signOut()}>
                 <ExitToAppIcon fontSize="large" />
                 </Link>  
+              
             </Menu.Item>
             <hr />
+            <LanguageSelect />
         </Menu>
     );
 };

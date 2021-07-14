@@ -11,6 +11,11 @@ import { DeleteOutlined } from '@ant-design/icons';
 import firebase, { db, auth } from "../../firebase";
 import { Redirect } from "react-router-dom";
 // In this List User can Upload a Product or Post something
+import { useTranslation } from "react-i18next";
+
+
+
+
 const StyledMenu = withStyles({
     paper: {
         border: "1px solid #d3d4d5",
@@ -30,6 +35,8 @@ const StyledMenu = withStyles({
         {...props}
     />
 ));
+
+
 
 const StyledMenuItem = withStyles((theme) => ({
     root: {
@@ -61,7 +68,10 @@ firebase.auth().onAuthStateChanged((user) => {
 
 
 function CustomizedMenus() {
+
     const [anchorEl, setAnchorEl] = React.useState(null);
+    const { t } = useTranslation();
+
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -80,7 +90,7 @@ function CustomizedMenus() {
                 aria-haspopup="true"
                 onClick={handleClick}
             >
-                <RocketOutlined style={{ fontSize: "32px" }} />
+                <RocketOutlined style={{position:'left', fontSize: "32px" }} />
             </div>
 
 
@@ -98,7 +108,7 @@ function CustomizedMenus() {
                         {/* <PlusOutlined style={{fontSize:"25px"}} /> */}
                         <UploadProduct />
                     </ListItemIcon>
-                    <ListItemText primary="Upload a product" />
+                    <ListItemText primary={t("Upload a product")} />
                 </StyledMenuItem>
                 
 
@@ -120,7 +130,7 @@ function CustomizedMenus() {
                     <ListItemIcon>
                         <Settings />
                     </ListItemIcon>
-                    <ListItemText primary="Store Profile"  />
+                    <ListItemText primary={t("Store Profile")}/>
                 </StyledMenuItem>
 {/* 
                 <StyledMenuItem onClick={handleClose}>
@@ -132,6 +142,7 @@ function CustomizedMenus() {
                 */}
 
             </StyledMenu>
+        
         </div>
     );
 }

@@ -6,7 +6,7 @@ import Tab from "@material-ui/core/Tab";
 import BrandProfile from "./Profile_Page";
 import Products from "../pages/Vendors_Page";
 import ProductsPage from "./Products_Page";
-
+import { useTranslation } from "react-i18next";
 
 function CenteredTabs() {
 
@@ -14,11 +14,11 @@ function CenteredTabs() {
     const handleChange = (event, newValue) => {
         setSelectedTab(newValue);
     };
-
+    const { t } = useTranslation();
     return (
         <>
             <div className="header">
-
+     
                 <Tabs
                     value={SelectedTab}
                     onChange={handleChange}
@@ -28,7 +28,7 @@ function CenteredTabs() {
                 >
                     {/* <Route path="/News" exact={true} component={News} /> */}
 
-                    <Tab label="Profile" style={{ outline: "none" }} />
+                    <Tab label={t("Profile")}   style={{ outline: "none" }} />
                     {/* <Tab label="Products" style={{ outline: "none" }} />  */}
                 </Tabs>
             </div>
