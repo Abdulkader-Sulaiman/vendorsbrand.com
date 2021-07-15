@@ -64,12 +64,6 @@ const ImageSlider = ({
     return (
         <div className="container">
            
-     {/* delete icon */}
-     {firebase.auth().currentUser !== null &&
-                firebase.auth().currentUser.uid === userId && (
-                    <MenuItem docID={docID} />
-                )}
-
             {Brands.map((Brand) => {
                 return (
                     <div key={Brand.id}>

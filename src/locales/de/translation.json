@@ -1,11 +1,11 @@
 {
     "select_language": "Sprache auswählen",
-    "Sign Up": "Neues Account erstellen",
+    "Sign Up": "Anmelden",
    "Log In" :"Einloggen",
    "Sign In": "Einloggen",
    "Password":"Kennwort",
    "Password Confirmation":"Kennwort Bestätigung",
-   "Don't have an account?": "Sie haben kein Konto?",
+   "Don't have an account?": "haben Sie kein Konto?",
    "Already have an account?":"Sie haben bereits ein Konto?",
    "No file chosen": "Produktbilder auswählen",
    "Add a new Product.": "Neues Produkt hinzufügen",

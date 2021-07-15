@@ -5,12 +5,18 @@ import {useParams} from 'react-router-dom'
 
 function Profile__Page({imageUrl, userId, docID}) {
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
+
     const {uid} = useParams();
     const [posts, SetPosts ] = useState([])
     const [loading, setLoading, ] = useState(false)
 
     var user = firebase.auth().currentUser;
     const ref = firebase.firestore().collection(uid);
+
+
 
     //REALTIME GET FUNCTION
     function getUserData() {
@@ -29,6 +35,7 @@ function Profile__Page({imageUrl, userId, docID}) {
                 getUserData();
             // eslint-disable-next-line
         }, []);
+
 
     // console.log(ref)
     if(loading){
