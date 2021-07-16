@@ -80,7 +80,7 @@ export default function SignUp() {
 
   return (
     <>
-     <Container component="main" maxWidth="xs" style={{backgroundColor:'#fff', position: 'relative',top:"30px", padding:'30px'}}>
+     <Container component="main" maxWidth="xs" style={{backgroundColor:'#fff', position: 'relative',top:"60px", padding:'30px'}}>
       <CssBaseline />
       <div className={classes.paper}>
         <Typography component="h1" variant="h5">

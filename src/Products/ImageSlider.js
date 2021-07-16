@@ -63,7 +63,11 @@ const ImageSlider = ({
    
     return (
         <div className="container">
-           
+            {firebase.auth().currentUser !== null &&
+                firebase.auth().currentUser.uid === userId && (
+                    <MenuItem docID={docID} />
+                )}
+
             {Brands.map((Brand) => {
                 return (
                     <div key={Brand.id}>
@@ -84,46 +88,49 @@ const ImageSlider = ({
                         src={imageUrl}
                         alt="Product-Image"
                     />
-                 
                 ))}
 
-              
-           
                 {/* <h3 className="description">{productName}</h3> 
     <p className="description">{description}</p>   
     <h1 className="price">{price}</h1> */}
             </Slider>
-         
 
-        <Card className={classes.root} >
-      <CardMedia image={'image'} title={'Product Name'} />
-      
-      <CardContent>
-        <div className={classes.cardContent} >
-       
-          <Typography gutterBottom variant="h5" component="h2"style={{position:'relative', marginTop:'50px'}} >
-            {productName}
-          </Typography>
+            <Card className={classes.root}>
+                <CardMedia image={"image"} title={"Product Name"} />
 
-          <Typography gutterBottom variant="h5" component="h2" style={{position:'relative', marginTop:'50px'}}>
-            ${price}
-          </Typography>
-        </div>
-        <Typography dangerouslySetInnerHTML={{ __html: description }} variant="body2" color="textSecondary" component="p" />
+                <CardContent>
+                    <div className={classes.cardContent}>
+                        <Typography
+                            gutterBottom
+                            variant="h5"
+                            component="h2"
+                            style={{ position: "relative", marginTop: "50px" }}
+                        >
+                            {productName}
+                        </Typography>
 
-
-      </CardContent>
-      <CardActions disableSpacing className={classes.cardActions}>
-        <IconButton aria-label="Add to Cart" >
-          <AddShoppingCart />
-        </IconButton>
-      </CardActions>
-    </Card>
-
-
-
-
-
+                        <Typography
+                            gutterBottom
+                            variant="h5"
+                            component="h2"
+                            style={{ position: "relative", marginTop: "50px" }}
+                        >
+                            ${price}
+                        </Typography>
+                    </div>
+                    <Typography
+                        dangerouslySetInnerHTML={{ __html: description }}
+                        variant="body2"
+                        color="textSecondary"
+                        component="p"
+                    />
+                </CardContent>
+                <CardActions disableSpacing className={classes.cardActions}>
+                    <IconButton aria-label="Add to Cart">
+                        <AddShoppingCart />
+                    </IconButton>
+                </CardActions>
+            </Card>
         </div>
     );
 };

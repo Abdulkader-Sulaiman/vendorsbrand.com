@@ -1,0 +1,41 @@
+
+
+
+@media only screen and (max-width: 763px) {
+    footer {
+        width: 90%;
+        cursor: pointer;
+        margin: 25px;
+        background: red;
+        text-align: center;
+    }
+    
+}
+
+ 
+
+ 
+
+@media only screen and (max-width: 1024px) {
+    footer {
+        /* width: 41%; */
+        cursor: pointer;
+        /* margin: 25px; */
+        background: orangered;
+        text-align: center;
+        /* flex-grow: 1px; */
+        flex-wrap: wrap;
+    }
+
+    
+}
+
+@media only screen and (max-width: 568px) {
+    footer {
+        
+        width: 100%;
+        margin: 0;
+        background-color: royalblue;  
+        min-height: 30px;
+    }
+}

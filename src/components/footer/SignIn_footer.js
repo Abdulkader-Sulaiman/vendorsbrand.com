@@ -4,6 +4,8 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
+import '../../css/SignIn_footer.css';
+
 
 function Copyright() {
   return (
@@ -22,18 +24,17 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
-    minHeight: '25rem',
+    minHeight: '22.1rem',
   },
   main: {
-    marginTop: theme.spacing(5),
-    marginBottom: theme.spacing(7),
- 
+    marginTop: theme.spacing(55),
+    marginBottom: theme.spacing(50),
   },
+  
   footer: {
-    padding: theme.spacing(14, 19),
+    padding: theme.spacing(3, 4),
     marginTop: 'auto',
-    backgroundColor:'white',
- 
+     backgroundColor:'white',
   },
 }));
 
