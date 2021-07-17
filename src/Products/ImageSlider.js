@@ -9,7 +9,7 @@ import { useParams } from "react-router-dom";
 import { Card, CardMedia, CardContent, CardActions, Typography, IconButton } from '@material-ui/core';
 import { AddShoppingCart } from '@material-ui/icons';
 import useStyles from './styles';
-
+ 
 
 const ImageSlider = ({
     Brandname,
@@ -95,16 +95,16 @@ const ImageSlider = ({
     <h1 className="price">{price}</h1> */}
             </Slider>
 
-            <Card className={classes.root}>
+            <Card className={classes.root}  >
                 <CardMedia image={"image"} title={"Product Name"} />
 
-                <CardContent>
-                    <div className={classes.cardContent}>
+                <CardContent style={{height: "300px"}}>
+                    <div className={classes.cardContent}  >
                         <Typography
                             gutterBottom
                             variant="h5"
                             component="h2"
-                            style={{ position: "relative", marginTop: "50px" }}
+                            style={{ position: "relative", marginTop: "50px"}}
                         >
                             {productName}
                         </Typography>
