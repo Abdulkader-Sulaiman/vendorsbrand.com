@@ -9,7 +9,7 @@ import { useParams } from "react-router-dom";
 import { Card, CardMedia, CardContent, CardActions, Typography, IconButton } from '@material-ui/core';
 import { AddShoppingCart } from '@material-ui/icons';
 import useStyles from './styles';
- 
+
 
 const ImageSlider = ({
     Brandname,
@@ -20,7 +20,8 @@ const ImageSlider = ({
     userId,
     docID,
     product, 
-    onAddToCart 
+    onAddToCart,
+    BName 
 }) => {
     const [posts, SetPosts] = useState([]);
     const [Brands, SetBrands] = useState([]);
@@ -53,6 +54,13 @@ const ImageSlider = ({
     }, []);
 
  
+
+
+
+
+
+
+    
         const settings = {
         //   dots: true,
           infinite: true,
@@ -63,23 +71,31 @@ const ImageSlider = ({
    
     return (
         <div className="container">
+        <div className="deleteBtn">
             {firebase.auth().currentUser !== null &&
                 firebase.auth().currentUser.uid === userId && (
                     <MenuItem docID={docID} />
                 )}
+        </div>
+
+
+
+
 
             {Brands.map((Brand) => {
                 return (
-                    <div key={Brand.id}>
+                    <div key={Brand.id} className="BrandName">
+                   
                         <Link to={Brand.Brandname}>
                             <h4 style={{ fontFamily: "sans-serif" }}>
                                 {Brand.Brandname}
+                                
                             </h4>
                         </Link>
                     </div>
                 );
             })}
-
+            {/* <div>Test it</div> */}
             <Slider {...settings}>
                 {imageUrl.map((imageUrl, i) => (
                     <img
@@ -94,11 +110,12 @@ const ImageSlider = ({
     <p className="description">{description}</p>   
     <h1 className="price">{price}</h1> */}
             </Slider>
-
+           
             <Card className={classes.root}  >
+           
                 <CardMedia image={"image"} title={"Product Name"} />
 
-                <CardContent style={{height: "300px"}}>
+                <CardContent style={{height: "200px"}}>
                     <div className={classes.cardContent}  >
                         <Typography
                             gutterBottom
@@ -107,6 +124,7 @@ const ImageSlider = ({
                             style={{ position: "relative", marginTop: "50px"}}
                         >
                             {productName}
+                            
                         </Typography>
 
                         <Typography

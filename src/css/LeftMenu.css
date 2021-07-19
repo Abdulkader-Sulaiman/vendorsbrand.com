@@ -32,6 +32,8 @@
     font-size: 20px;
     padding: 19px 20px;
     text-transform: capitalize;
+    position: relative;
+    right: 15px;
 }
 
 .menuCon {
@@ -76,10 +78,10 @@
     float: right;
     height: 32px;
     padding: 6px;
-    margin-top: 8px;
+    margin-top: 10px;
     display: none;
     background: none;
-   
+    left: 25px;
 }
 
 .barsBtn {
@@ -87,6 +89,7 @@
     width: 20px;
     height: 2px;
     position: relative;
+  
 }
 
 .barsBtn:after,
@@ -141,7 +144,7 @@
     }
 
     .logo a {
-        margin-left: -20px;
+        margin-left: -52px;
     }
 
     .menuCon .ant-menu-item,

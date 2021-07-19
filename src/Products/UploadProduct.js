@@ -41,7 +41,10 @@ function UploadProduct() {
     const [Brands, SetBrands] = useState([]);
     const [Brandname, setBrandname] = useState("");
     const [ProductName, setProductName] = useState("");
-
+    const [BName, setBName] = useState("");
+    const [currentBrandName, setCurrentBrandName] = useState({});
+  
+  
     const handleOpen = () => {
     setOpen(true);
     };
@@ -54,7 +57,57 @@ function UploadProduct() {
   }
 
   const { t } = useTranslation();
-  const ref = firebase.firestore().collection('user.uid');
+//   const ref = firebase.firestore().collection('user.uid');
+    
+// //REALTIME GET FUNCTION
+// function getBrandData() {
+//     setLoading(true);
+//     ref.onSnapshot((querySnapshot) => {
+//       const items = [];
+//       querySnapshot.forEach((doc) => {
+//         items.push(doc.data());
+//       });
+//       SetPosts(items);
+//       setLoading(false);
+//     });
+//   }
+
+//   useEffect(() => {
+//     getBrandData();
+//     // eslint-disable-next-line
+//   }, []);
+
+
+
+
+var userID = firebase.auth().currentUser.uid;
+useEffect(() => {
+    const fetchData = async() => {
+        try {
+            const response = await db
+                .collection("users")
+                .doc(userID)
+                .get();
+
+            console.log('response', response);
+            let data = { title: 'not found' };
+
+            if (response.exists) {
+                data = response.data();
+            }
+
+            setCurrentBrandName(data);
+            setLoading(false);
+
+        } catch(err) {
+            console.error(err);
+        }
+    };
+    fetchData();
+}, []);
+
+
+  const ref = firebase.firestore().collection('Brands');
     
 //REALTIME GET FUNCTION
 function getBrandData() {
@@ -99,7 +152,7 @@ function getBrandData() {
             db.collection("products").doc(docID).set({
                 timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                 images: fileDownloadUrls,
-                // Brandname: 'B1',
+                BName: currentBrandName.Brandname,
                 userId:userId,
                 docID: docID,
                 productName: ProductName,
@@ -193,7 +246,9 @@ function getBrandData() {
         <input type="text" onChange={(e) => setProductName(e.target.value)} value={ProductName} placeholder={t("Enter a Product Name")} required/>  
         <input type="text" onChange={(e) => setPrductPrice(e.target.value)} value={productPrice} placeholder={t("Enter a Product Price")} required />
         <textarea onChange={(e) => setPrductDescription(e.target.value)} value={PrductDescription} placeholder={t("Enter Product description")}  required/>  
-      </div>
+        {/* {!loading && currentBrandName.Brandname} */}
+   
+    </div>
       <Button  className="imageupload__button" onClick={handleUpload}>
       {t("Upload")}</Button>
     <Button onClick={handleClose}>{t("Cancel")}</Button>

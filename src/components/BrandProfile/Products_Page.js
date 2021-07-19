@@ -19,15 +19,11 @@ export default function ProductsPage() {
             setProduct(snapshot.docs.map((doc) => ({ id: doc.id, product: doc.data()})))
           );
       }, []);
-     
     
-  
-
     if(loading){
         return <h1>Loading...</h1>;
     }
 
- 
   return (
       <div className="products">
           <h1>Products Page</h1>

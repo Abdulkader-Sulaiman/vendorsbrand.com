@@ -6,7 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import HomeTabs from './Dashboard';
 import firebase, { db, auth } from "../../firebase";
 import {useParams} from 'react-router-dom'
- 
+
 
 function Brandprofile__Page() {
     const {uid} = useParams();

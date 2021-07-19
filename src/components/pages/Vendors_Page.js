@@ -65,14 +65,13 @@ import { useTranslation } from "react-i18next";
    {
     Brands.map((Brand) => {
      return(
-   <div key={Brand.id} className="profiles_Container">
+   <div key={Brand.id} className="profiles_Container" style={{top:'40px'}}>
   <div className="card" style={{width: "18rem"}}>
   <div className="card-body">
   <h4 className="card-title">{Brand.Brandname}</h4>
 <Link to={Brand.Brandname} class="btn btn-primary">{t("View Store")}</Link>   
   </div>
 </div>
-
 </div>
            )
        })

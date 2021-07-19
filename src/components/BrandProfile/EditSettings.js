@@ -9,6 +9,7 @@ import { withFirestore } from "react-firestore";
 import firebase, {storage, db, auth  } from "../../firebase";
 import '../../css/Settings.css'; 
 
+
 const useStyles = makeStyles((theme) => ({
     modal: {
         display: "flex",

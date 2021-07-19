@@ -15,9 +15,15 @@ body {
     background: hsl(214, 100%, 95%);
     position: relative;
 }
+body {
+    background: hsl(214, 100%, 95%);
+}
+
+
 .coverimage {
     height: 25em;
     width: 100%;
+ 
 }
 
 .brand__Info {
@@ -25,17 +31,21 @@ body {
     bottom: 1px;
     right: 10px;
     padding: 20px;
+ 
 }
 
 .brand__name {
     position: relative;
     top: 10px;
+  
 }
 
 .brand__Bio {
     position: relative;
     top: 20px;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+   
+
 }
 
 a + a {
@@ -55,6 +65,7 @@ a + a {
     border: 0.1px solid #cfc6c6d7;
     border-radius: 5px;
     height: auto;
+    top: 50px;
 }
 
 .brand__name:hover {
@@ -75,4 +86,10 @@ a + a {
     position: relative;
     top: 51%;
     border-radius: 2px;
+}
+
+#products_Profile {
+    position: relative;
+   margin-top:250px;
+  
 }

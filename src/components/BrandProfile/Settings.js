@@ -10,6 +10,8 @@ import firebase, {storage, db, auth  } from "../../firebase";
 import '../../css/Settings.css'; 
 import UploadProduct from '../../Products/UploadProduct';
 import { useTranslation } from "react-i18next";
+import {useParams} from 'react-router-dom'
+
 
 const useStyles = makeStyles((theme) => ({
     modal: {
@@ -36,6 +38,9 @@ function Settings(props) {
     const [brandIndustry, setbrandIndustry] = useState("");
     const [name, setName] = useState('Tarun');
     const { t } = useTranslation();
+    const {uid} = useParams();
+    const [loading, setLoading] = useState(true);
+   
 
     let userId = firebase.auth().currentUser.uid;
     const addItem = (Brandname, write_something, foundedBy, Headquarters) => {
@@ -56,9 +61,9 @@ function Settings(props) {
             .catch(function (error) {
                 console.error("Error writing document:", error);
             });
-        
             // console.log('collection exists');
      };
+
      const docID = db.collection("Brands").doc().id;
         const addnewItems = (Brandname) => {
             db.collection('Brands').doc(docID)
@@ -73,7 +78,26 @@ function Settings(props) {
                 .catch(function (error) {
                     console.error("Error writing document:", error);
                 });
+                var userID = firebase.auth().currentUser.uid;
+                db.collection('users').doc(userID)
+                .set({
+                    Brandname: Brandname,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                    docID:docID
+                })
+                .then(function () {
+                    console.log("Document successfully written!");
+                })
+                .catch(function (error) {
+                    console.error("Error writing document:", error);
+                });
             };
+
+         
+
+
+
+
 
             const addBrandname = (Brandname) => {
                 db.collection(userId).doc(userId)
@@ -187,7 +211,7 @@ function Settings(props) {
                                     placeholder= {t("Enter your Business Name")}
                                     autocomplete="false"
                                 />
-                                <textarea
+                                {/* <textarea
                                 maxLength="400"
                                 rows="4" cols="50"
                                 onChange={handleTextarea}
@@ -195,9 +219,9 @@ function Settings(props) {
                                 value={write_something}
                                 placeholder={t("Write something about your Brand")}
                                 autocomplete="false"
-                                />
-                                <h5 className="Profile_title">{t("Additional Settings")}</h5>
-                                <input
+                                /> */}
+                                {/* <h5 className="Profile_title">{t("Additional Settings")}</h5> */}
+                                {/* <input
                                 maxLength="150"
                                     type="text"
                                     onChange={handleInput1}
@@ -205,8 +229,8 @@ function Settings(props) {
                                     value={foundedBy}
                                     placeholder={t("Brand Founded by")}
                                     autocomplete="false"
-                                />
-                                <input
+                                /> */}
+                                {/* <input
                                   maxLength="150"
                                     type="text"
                                     onChange={handleInput2}
@@ -214,8 +238,8 @@ function Settings(props) {
                                     value={Headquarters}
                                     placeholder={t("Headquarters")}
                                     autocomplete="false"
-                                />  
-                                <input
+                                />   */}
+                                {/* <input
                                 maxLength="161"
                                     type="text"
                                     onChange={handleInput3}
@@ -223,7 +247,7 @@ function Settings(props) {
                                     value={brandIndustry}
                                     placeholder={t("Brand Industry")}
                                     autocomplete="false"
-                                />  
+                                />   */}
                                 <button type="submit" button onClick={handleSubmit} >
                                 {t("Save")}
                                  
