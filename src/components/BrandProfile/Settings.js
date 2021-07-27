@@ -40,20 +40,20 @@ function Settings(props) {
     const { t } = useTranslation();
     const {uid} = useParams();
     const [loading, setLoading] = useState(true);
+    const [BrandLocation, setBrandLocation] = useState("");
    
-
     let userId = firebase.auth().currentUser.uid;
     const addItem = (Brandname, write_something, foundedBy, Headquarters) => {
     
             db.collection(Brandname).doc('userId')
             .set({
                 Brandname: Brandname,
-                about: write_something,
-                foundedBy: foundedBy,
-                Headquarters: Headquarters,  
-                brandIndustry: brandIndustry,
+                // about: write_something,
+                // foundedBy: foundedBy,
+                // Headquarters: Headquarters,  
+                // brandIndustry: brandIndustry,
+                Store_location: BrandLocation,
                 timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-            
             })
             .then(function () {
                 console.log("Document successfully written!");
@@ -96,9 +96,6 @@ function Settings(props) {
          
 
 
-
-
-
             const addBrandname = (Brandname) => {
                 db.collection(userId).doc(userId)
                     .set({
@@ -118,6 +115,7 @@ function Settings(props) {
                 db.collection('userId').doc(Brandname)
                     .set({
                         Brandname: Brandname,
+                        Store_location: BrandLocation,
                         about: write_something,
                         foundedBy: foundedBy,
                         Headquarters: Headquarters,  
@@ -136,6 +134,10 @@ function Settings(props) {
         // inputRef.current.focus
         const handleChange = (event) => {
             setBrandname(event.target.value);
+        };
+
+        const handlelocationChange = (event) => {
+            setBrandLocation(event.target.value);
         };
 
             const handleTextarea = (event) => {
@@ -211,6 +213,18 @@ function Settings(props) {
                                     placeholder= {t("Enter your Business Name")}
                                     autocomplete="false"
                                 />
+
+                            <input
+                                maxLength="100"
+                                    type="text"
+                                    onChange={handlelocationChange}
+                                    id="name"
+                                    value={BrandLocation}
+                                    placeholder= {t("Enter your Business Location")}
+                                    autocomplete="ture"
+                                />
+
+
                                 {/* <textarea
                                 maxLength="400"
                                 rows="4" cols="50"

@@ -18,10 +18,10 @@ function Home() {
             );
       }, []);
     
-    
+ 
 
     var docRef = db.collection("test").doc("0V1psF9F1PoRlu7KWV4W");
-
+ 
       docRef.get().then((doc) => {
           if (doc.exists) {
               console.log("Document data:", doc.data());

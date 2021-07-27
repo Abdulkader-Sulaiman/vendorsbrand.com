@@ -21,7 +21,8 @@ const ImageSlider = ({
     docID,
     product, 
     onAddToCart,
-    BName 
+    BName,
+    Location 
 }) => {
     const [posts, SetPosts] = useState([]);
     const [Brands, SetBrands] = useState([]);
@@ -53,13 +54,7 @@ const ImageSlider = ({
         // eslint-disable-next-line
     }, []);
 
- 
-
-
-
-
-
-
+ const handleFocus = (event) => event.target.select();
     
         const settings = {
         //   dots: true,
@@ -70,15 +65,15 @@ const ImageSlider = ({
         };
    
     return (
-        <div className="container">
-        <div className="deleteBtn">
+        <div className="container" style={{backgroundColor:'white'}}>
+        <div className="deleteBtn"
+        
+        >
             {firebase.auth().currentUser !== null &&
                 firebase.auth().currentUser.uid === userId && (
                     <MenuItem docID={docID} />
                 )}
         </div>
-
-
 
 
 
@@ -112,7 +107,7 @@ const ImageSlider = ({
             </Slider>
            
             <Card className={classes.root}  >
-           
+     
                 <CardMedia image={"image"} title={"Product Name"} />
 
                 <CardContent style={{height: "200px"}}>
@@ -124,7 +119,7 @@ const ImageSlider = ({
                             style={{ position: "relative", marginTop: "50px"}}
                         >
                             {productName}
-                            
+                          
                         </Typography>
 
                         <Typography

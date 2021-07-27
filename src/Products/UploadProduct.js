@@ -43,8 +43,8 @@ function UploadProduct() {
     const [ProductName, setProductName] = useState("");
     const [BName, setBName] = useState("");
     const [currentBrandName, setCurrentBrandName] = useState({});
-  
-  
+    const [currentBrandLocation, setCurrentBrandLocation] = useState({});
+    
     const handleOpen = () => {
     setOpen(true);
     };
@@ -78,8 +78,6 @@ function UploadProduct() {
 //   }, []);
 
 
-
-
 var userID = firebase.auth().currentUser.uid;
 useEffect(() => {
     const fetchData = async() => {
@@ -105,6 +103,38 @@ useEffect(() => {
     };
     fetchData();
 }, []);
+
+
+
+// get Store Location from DB
+var x = currentBrandName.Brandname 
+
+useEffect(() => {
+
+    const fetchData = async() => {
+        try {
+            const response = await db
+                .collection('ShopTeam')
+                .doc('userId')
+                .get();
+
+            console.log('response', response);
+            let data = { title: 'not found' };
+
+            if (response.exists) {
+                data = response.data();
+            }
+
+            setCurrentBrandLocation(data);
+            setLoading(false);
+
+        } catch(err) {
+            console.error(err);
+        }
+    };
+    fetchData();
+}, []);
+
 
 
   const ref = firebase.firestore().collection('Brands');
@@ -187,8 +217,6 @@ function getBrandData() {
                 );
             })}
 
-
-
   // Every User get there Products in a uid Colection
           Promise.all(promises)
           .then((fileDownloadUrls) => {
@@ -247,7 +275,8 @@ function getBrandData() {
         <input type="text" onChange={(e) => setPrductPrice(e.target.value)} value={productPrice} placeholder={t("Enter a Product Price")} required />
         <textarea onChange={(e) => setPrductDescription(e.target.value)} value={PrductDescription} placeholder={t("Enter Product description")}  required/>  
         {/* {!loading && currentBrandName.Brandname} */}
-   
+        {/* {currentBrandLocation.Store_location} 
+        {currentBrandName.Brandname} */}
     </div>
       <Button  className="imageupload__button" onClick={handleUpload}>
       {t("Upload")}</Button>
@@ -260,6 +289,5 @@ function getBrandData() {
 </div>
   );
 }
-
 
 export default UploadProduct

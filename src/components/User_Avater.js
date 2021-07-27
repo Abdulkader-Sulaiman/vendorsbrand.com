@@ -6,6 +6,7 @@ import firebase, { db } from "../firebase";
 import AccountBoxTwoToneIcon from '@material-ui/icons/AccountBoxTwoTone';
 import { Menu, Grid } from "antd";
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -23,7 +24,6 @@ const useStyles = makeStyles((theme) => ({
   },
  
 }));
- 
 
 export default function ImageAvatars() {
   const classes = useStyles();
@@ -32,12 +32,10 @@ export default function ImageAvatars() {
     <div className={classes.root}>
       {/* <Avatar alt="Remy Sharp" src="https://static.vecteezy.com/system/resources/thumbnails/001/503/756/small/boy-face-avatar-cartoon-free-vector.jpg" className={classes.small} /> */}
  
-      { firebase.auth().currentUser !== null && (
+      {/* { firebase.auth().currentUser !== null && (
        <h6 style={{position: 'relative',top: '10px'}}>{currentUser.email}</h6>
-)}
+)} */}
 
-   
-    
       {/* <Avatar alt="Remy Sharp" src="https://static.vecteezy.com/system/resources/thumbnails/001/503/756/small/boy-face-avatar-cartoon-free-vector.jpg" className={classes.large} /> */}
     </div>
   );

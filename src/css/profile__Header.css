@@ -9,11 +9,12 @@ body {
     align-items: center;
     position: relative;
     justify-content: center;
-    height: 100rem;
-    top: 1px;
+    /* height: 100rem; */
+    /* top: 1px; */
     width: 100%;
     background: hsl(214, 100%, 95%);
     position: relative;
+    
 }
 body {
     background: hsl(214, 100%, 95%);
@@ -21,14 +22,14 @@ body {
 
 
 .coverimage {
-    height: 25em;
+    /* height: 25em; */
     width: 100%;
  
 }
 
 .brand__Info {
     position: relative;
-    bottom: 1px;
+    /* bottom: 1px; */
     right: 10px;
     padding: 20px;
  
@@ -65,7 +66,7 @@ a + a {
     border: 0.1px solid #cfc6c6d7;
     border-radius: 5px;
     height: auto;
-    top: 50px;
+    /* top: 50px; */
 }
 
 .brand__name:hover {
@@ -81,15 +82,14 @@ a + a {
     border: 1px solid #d6cfb9;
     padding: 1px;
     justify-content: center;
-    height: 10%;
+    /* height: 10%; */
     width: 100%;
     position: relative;
-    top: 51%;
+    /* top: 51%; */
     border-radius: 2px;
 }
 
 #products_Profile {
     position: relative;
-   margin-top:250px;
-  
+    margin-top:-50px;
 }

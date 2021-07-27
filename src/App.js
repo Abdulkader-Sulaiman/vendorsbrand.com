@@ -12,6 +12,7 @@ import {createMuiTheme, ThemeProvider } from '@material-ui/core'
 import { useTranslation } from "react-i18next";
 import LanguageSelect from "./languageSelect";
 import TextField from "@material-ui/core/TextField";
+import usePlacesAPI from '../src/usePlacesAutocomplete';
 
 const theme = createMuiTheme({
     palette: {
@@ -26,6 +27,7 @@ function App() {
     const { t } = useTranslation();
     return (
         <ThemeProvider theme={theme}>
+        <usePlacesAPI />
         
             <Router>
            
