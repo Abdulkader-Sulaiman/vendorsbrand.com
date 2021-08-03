@@ -1,5 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { auth } from "../firebase";
+import { useTranslation } from "react-i18next";
+
 
 const AuthContext = React.createContext();
 
@@ -10,6 +12,8 @@ export function useAuth() {
 export function AuthProvider({ children }) {
     const [currentUser, setCurrentUser] = useState();
     const [loading, setLoading] = useState(true);
+    const { t } = useTranslation();
+
 
     function signup(email, password) {
         return auth
@@ -18,7 +22,7 @@ export function AuthProvider({ children }) {
                 // send verification mail.
                 userCredential.user.sendEmailVerification();
                 auth.signOut();
-                alert("Please verify your Email Address");
+                alert(t("Please go to your Email Inbox and verify your Email Address"));
             })
             .catch(alert);
     }
