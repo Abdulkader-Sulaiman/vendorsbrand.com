@@ -42,8 +42,8 @@ function UploadProduct() {
     const [Brandname, setBrandname] = useState("");
     const [ProductName, setProductName] = useState("");
     const [BName, setBName] = useState("");
-    const [currentBrandName, setCurrentBrandName] = useState({});
-    const [currentBrandLocation, setCurrentBrandLocation] = useState({});
+    const [currentBrandData, setCurrentBrandData] = useState({});
+    const [ProdctLocation, setProdctLocation] = useState({});
     
     const handleOpen = () => {
     setOpen(true);
@@ -94,7 +94,7 @@ useEffect(() => {
                 data = response.data();
             }
 
-            setCurrentBrandName(data);
+            setCurrentBrandData(data);
             setLoading(false);
 
         } catch(err) {
@@ -107,33 +107,33 @@ useEffect(() => {
 
 
 // get Store Location from DB
-var x = currentBrandName.Brandname 
+// var x = currentBrandName.Brandname 
 
-useEffect(() => {
+// useEffect(() => {
 
-    const fetchData = async() => {
-        try {
-            const response = await db
-                .collection('ShopTeam')
-                .doc('userId')
-                .get();
+//     const fetchData = async() => {
+//         try {
+//             const response = await db
+//                 .collection('ShopTeam')
+//                 .doc('userId')
+//                 .get();
 
-            console.log('response', response);
-            let data = { title: 'not found' };
+//             console.log('response', response);
+//             let data = { title: 'not found' };
 
-            if (response.exists) {
-                data = response.data();
-            }
+//             if (response.exists) {
+//                 data = response.data();
+//             }
 
-            setCurrentBrandLocation(data);
-            setLoading(false);
+//             setCurrentBrandLocation(data);
+//             setLoading(false);
 
-        } catch(err) {
-            console.error(err);
-        }
-    };
-    fetchData();
-}, []);
+//         } catch(err) {
+//             console.error(err);
+//         }
+//     };
+//     fetchData();
+// }, []);
 
 
 
@@ -182,7 +182,8 @@ function getBrandData() {
             db.collection("products").doc(docID).set({
                 timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                 images: fileDownloadUrls,
-                BName: currentBrandName.Brandname,
+                BName: currentBrandData.Brandname,
+                ProdctLocation: currentBrandData.ProdctLocation,
                 userId:userId,
                 docID: docID,
                 productName: ProductName,

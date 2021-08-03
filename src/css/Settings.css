@@ -6,15 +6,47 @@
 .storeInfo {
     justify-content: center;
     padding: 10px;
+    width: 100%;
 }
 
-.storeInfo input {
+.storName {
     margin: 10px;
     justify-content: center;
     padding: 10px;
     border: 1px solid #888;
     outline-color: rgb(98, 169, 240);
     width: 100%;
+}
+
+.Location_input {
+
+    margin: 10px;
+    justify-content: center;
+    padding: 10px;
+    border: 1px solid #888;
+    outline-color: rgb(98, 169, 240);
+    width: 100%;
+}
+
+
+
+
+.saveBtn {
+
+    position: relative;
+    margin: 10px;
+    width: 100%;
+    padding: 13px;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    font-size: large;
+    background-color: #1890ff;
+    border-radius: 3.5px;
+    color: #ffffff;
+    top: 30px;
+
 }
 
 #name {
@@ -35,7 +67,7 @@ textarea {
     overflow: auto;
 }
 
-.storeInfo button {
+/* .storeInfo button {
     position: relative;
     margin: 10px;
     width: 100%;
@@ -48,7 +80,8 @@ textarea {
     background-color: #1890ff;
     border-radius: 3.5px;
     color: #ffffff;
-}
+    top: 35px;
+} */
 
 .cancel {
     position: relative;
@@ -63,6 +96,7 @@ textarea {
     background-color: #1890ff;
     border-radius: 3.5px;
     color: #ffffff;
+    top: 15px;
 }
 
 .cancel:hover {
@@ -76,6 +110,8 @@ textarea {
     margin: 10px;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+
 .storeInfo button:hover {
     color: #888;
     background-color: rgb(95, 148, 255);

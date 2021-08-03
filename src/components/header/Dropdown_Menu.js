@@ -90,9 +90,10 @@ function CustomizedMenus() {
                 aria-haspopup="true"
                 onClick={handleClick}
             >
-                <RocketOutlined style={{position:'left', fontSize: "32px" }} />
+                {/* <RocketOutlined style={{position:'left', fontSize: "32px" }} /> */}
+          
+          <p style={{position:'left' }} className="My_Store">{t("My Store")}</p>
             </div>
-
 
             <StyledMenu
                 id="customized-menu"

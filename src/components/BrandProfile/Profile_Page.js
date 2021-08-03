@@ -107,6 +107,7 @@ function Profile__Page({imageUrl, userId, docID}) {
                     docID={post.docID}
                     Brandname={post.Brandname}
                     BName={post.BName}
+                    ProdctLocation={post.ProdctLocation}
                />
                 
             ) 

@@ -219,6 +219,7 @@ export default function PrimarySearchAppBar() {
               aria-haspopup="true"
               onClick={handleMobileMenuOpen}
               color="inherit"
+          
             >
               <MoreIcon />
             </IconButton>

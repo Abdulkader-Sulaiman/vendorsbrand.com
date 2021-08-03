@@ -6,14 +6,25 @@
     overflow: auto;
     box-shadow: 0 0 30px #f3f1f1;
     background-color: #fff;
-  
+     
 }
+
+
+*[dir="rtl"] .menuBar {
+    padding: 0 80px;
+     padding-bottom:10px;
+   
+}
+
 .SearchBar{
     position: relative;
     textAlign: center;
     color: 'red';
     width:'50%';
+     
 }
+
+ 
 
 .logo {
     width: 150px;
@@ -23,8 +34,9 @@
 .ant-menu {
     position: relative;
     bottom: 20px;
-    right: 8px;
-
+    right: 25px;
+    
+     
 }
 
 .logo a {
@@ -34,11 +46,13 @@
     text-transform: capitalize;
     position: relative;
     right: 15px;
+    
 }
 
 .menuCon {
     width: calc(100% - 150px);
     float: left;
+     
 }
 
 .ant-drawer-wrapper-body {
@@ -46,21 +60,74 @@
     top: 0px;
     padding: 0;
     left: 30px;
+    overflow-x: hidden;
 }
+
+*[dir="rtl"] .ant-drawer-wrapper-body {
+    position: relative;
+    top: 0px;
+    padding: 0;
+    left: 15px;
+    
+}
+
+
+
+.ant-drawer-body{
+    overflow-x: hidden;
+}
+
+*[dir="rtl"] .ant-drawer-body {
+    overflow-x: hidden;
+}
+
+ 
+.ant-drawer .ant-drawer-content {
+    overflow-x: hidden;
+}
+
+*[dir="rtl"] .ant-drawer-title {
+
+ position: relative;
+ right: 70%;
+
+}
+
+.CloseCircle {
+    position: relative;
+    top: 10px;
+    margin-left: -20px;
+
+}
+
+*[dir="rtl"] .CloseCircle {
+    position: relative;
+    right: 173px;
+    top: 10px
+}
+.LanguageSelect {
+  background-color: #1890ff;
+}
+
 
 .menuCon .ant-menu-item {
     padding: 0px 5px;
     position: relative;
+    
 }
 
 .menuCon .ant-menu-submenu-title {
     padding: 10px 20px;
     display: flex;
+    overflow-x: hidden;
+  
 }
 
 .menuCon .ant-menu-item a,
 .menuCon .ant-menu-submenu-title a {
     padding: 10px 15px;
+ 
+   
 }
 
 .menuCon .ant-menu-horizontal {
@@ -68,6 +135,7 @@
     position: relative;
     display: flex;
     top: 10px;
+   
 }
 
 .menuCon .leftMenu {
@@ -82,14 +150,22 @@
     display: none;
     background: none;
     left: 25px;
+   
 }
+
+
+*[dir="rtl"] .barsMenu {
+    top: 5px;
+    left: 40px;
+}
+
 
 .barsBtn {
     display: block;
     width: 20px;
     height: 2px;
     position: relative;
-  
+    
 }
 
 .barsBtn:after,
@@ -101,11 +177,13 @@
     left: 0;
     height: 2px;
     background: #1890ff;
+
 }
 
 .barsBtn:after {
     top: auto;
     bottom: -6px;
+   
 }
 
 .ant-drawer-body {
@@ -135,12 +213,12 @@
 @media (max-width: 767px) {
     .barsMenu {
         display: inline-block;
-   
     }
 
     .leftMenu,
     .rightMenu {
         display: none;
+
     }
 
     .logo a {
@@ -150,6 +228,7 @@
     .menuCon .ant-menu-item,
     .menuCon .ant-menu-submenu-title {
         padding: 1px 0px;
+       
     }
 
     .logo a {
@@ -158,11 +237,20 @@
 }
 
 
-
 @media (max-width: 500px) {
     .ant-menu h4{
         position: relative;
         bottom: 20px;
         right: 50px;
+       
     }
+   
 }
+
+@media only screen and (max-width: 600px) {
+
+   body {
+    overflow-x: hidden;
+    }
+  
+  }

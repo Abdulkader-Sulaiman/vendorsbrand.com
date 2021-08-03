@@ -28,7 +28,10 @@
    "Headquarters":"Geschäft hauptquartier Z.B Berlin",
    "Brand Industry": "Geschäftstyp Z.B: Restaurant",
    "Enter your Business Location":"Geben Sie Ihren Geschäftsstandort ein",
-    "My Store":"Mein Geschäft"
-
+    "My Store":"Mein Geschäft",
+    "Save": "Speichern",
+     "Select Country": "Land auswählen",
+     "Germany": "Deutschland",
+     "Choose any Country Market you like": "Wählen Sie einen beliebigen Ländermarkt aus"
 }
   

@@ -4,19 +4,23 @@ import { Drawer, Button } from 'antd';
 import { CloseCircleTwoTone } from '@ant-design/icons';
 import firebase, { db, auth } from "../../firebase";
 import LogInORSignUp from "../header/LogIn_OR_SignUp";
+import { useTranslation } from "react-i18next";
+import '../../css/LeftMenu.css';
 
 
 class Navbar extends Component {
 	state = {
 		current: 'mail',
-		visible: false
-	}
+		visible: false,
+          
+	};
+    
 	showDrawer = () => {
 		this.setState({
 			visible: true,
 		});
 	};
-
+ 
 	onClose = () => {
 		this.setState({
 			visible: false,
@@ -82,7 +86,9 @@ class Navbar extends Component {
                         position:'relative',
                         left:'19px',
                         bottom:'20px',
-                        }} />
+                        }} 
+                        className="CloseCircle"
+                        />
 					</Drawer>
                   
 				</div>

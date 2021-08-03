@@ -35,11 +35,11 @@ function CenteredTabs() {
           textColor='inherit'
           centered
         >
-        <Tab label={<HomeTwoTone style={{fontSize:'30px'}}/>} style={{outline: "none", fontFamily:'initial' }} />
         <Tab label={<ShopTwoTone style={{fontSize:'30px'}}/>} style={{outline: "none", fontFamily:'initial' }} />
+        {/* <Tab label={<ShopTwoTone style={{fontSize:'30px'}}/>} style={{outline: "none", fontFamily:'initial' }} /> */}
         {/* <Tab label="Media" style={{ outline: "none" }} /> */}
         </Tabs>
-
+ 
         </div>
         <br />
       {/* <AutoPlaySlider /> */}

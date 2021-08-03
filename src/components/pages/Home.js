@@ -9,6 +9,10 @@ import '../../css/ImageSlider.css';
 import { useAuth } from "../../contexts/AuthContext"
 import MenuItem from '../../Products/MenuItem'
 import '../../css/delete_Product.css'
+import Select from '../header/Select';
+import { useTranslation } from "react-i18next";
+import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
+
 
 
 const mystyle = {
@@ -24,7 +28,10 @@ const mystyle = {
     const [posts, setPosts ] = useState([])   
     const { currentUser, logout } = useAuth()
     const [userId, setUserId] = useState('')
- 
+    const [country, setCountry] = useState("");
+    const [region, setRegion] = useState("");
+    const {  t } = useTranslation();
+
     useEffect(() => {
         db.collection("products")
           .orderBy("timestamp", "desc")
@@ -40,12 +47,43 @@ const mystyle = {
         return <h1>Loading...</h1>;
     }
     
+
+    
     return (
         <>
+
+
+{/*         
+      <div className="Selectt"> */}
+      {/* <ReactLanguageSelect
+      names={"international"}
+      onSelect={(languageCode)=>setSelectedLanguage(languageCode)}
+      /> */}
+ 
+
+ 
+      {/* <h3 className="h3Title" style={{textAlign:'center'}}>{t('Choose any Country Market you like')} </h3> */}
+        {/* <CountryDropdown
+        value={country}  
+        onChange={(val) => setCountry(val)}
+        className="CountryDropdown"
+        id="country"
+   
+       
+      />  */}
+  
+    {/* </div> */}
     {/* <h1 style={mystyle}>Here you will find Vendors Products</h1>  */}
     <div className="products">
+
    {
+    
+    
+     
        posts.map(({id, post })=> (
+         
+          
+        
         <ImageSlider 
             key={id}
             userId={post.userId}
@@ -55,10 +93,11 @@ const mystyle = {
             imageUrl={post.images}
             docID={post.docID}
             Brandname={post.Brandname}
+            ProdctLocation={post.ProdctLocation}
             />
-            
+         
        )) 
-   }
+       }
 
 </div>
 </>

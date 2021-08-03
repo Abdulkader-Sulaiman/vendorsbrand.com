@@ -9,7 +9,9 @@ import { useParams } from "react-router-dom";
 import { Card, CardMedia, CardContent, CardActions, Typography, IconButton } from '@material-ui/core';
 import { AddShoppingCart } from '@material-ui/icons';
 import useStyles from './styles';
-
+import LocationOnTwoToneIcon from '@material-ui/icons/LocationOnTwoTone';
+import LocationOnRoundedIcon from '@material-ui/icons/LocationOnRounded';
+import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined';
 
 const ImageSlider = ({
     Brandname,
@@ -22,7 +24,7 @@ const ImageSlider = ({
     product, 
     onAddToCart,
     BName,
-    Location 
+    ProdctLocation
 }) => {
     const [posts, SetPosts] = useState([]);
     const [Brands, SetBrands] = useState([]);
@@ -90,6 +92,11 @@ const ImageSlider = ({
                     </div>
                 );
             })}
+            <div style={{ textAlign: 'center' }}>
+           
+<h6 style={{textAlign: 'center', color:'rgb(138, 141, 145)'}}> <LocationOnOutlinedIcon style={{fontSize:'28px'}}/> {ProdctLocation}</h6>
+            </div>
+           
             {/* <div>Test it</div> */}
             <Slider {...settings}>
                 {imageUrl.map((imageUrl, i) => (
@@ -128,8 +135,9 @@ const ImageSlider = ({
                             component="h2"
                             style={{ position: "relative", marginTop: "50px" }}
                         >
-                            ${price}
+                            {price}
                         </Typography>
+                        
                     </div>
                     <Typography
                         dangerouslySetInnerHTML={{ __html: description }}

@@ -11,7 +11,7 @@
     flex-wrap: wrap;
     justify-content: center;
     /* height: 300px; */
-     bottom:40px;
+     top: 15px;
     
 }
 
@@ -29,6 +29,9 @@
     margin-top: 130px; 
     /* padding-bottom: 650px; */
     padding:1px;
+   border-radius: 3px;
+    
+   
 }
 
 .deleteBtn {
@@ -39,10 +42,18 @@
 
 .BrandName {
     background: rgba(255, 255, 255, 0.733);
-   
     text-align:center;
+    position: relative;
+    bottom: 20px;
+}
+
+
+.BrandName :hover {
+  color: #888;
+    
     
 }
+
 
 
 /* 
@@ -143,7 +154,7 @@
         cursor: pointer;
        justify-content: unset;
        margin-top: 100px;
-       margin-bottom: 1px;
+       margin-bottom: 50px;
         /* background-color: royalblue; */
         padding-bottom: 830px;
     }

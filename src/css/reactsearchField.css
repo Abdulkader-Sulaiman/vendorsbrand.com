@@ -1,0 +1,60 @@
+.react-search-field-input {
+color: rebeccapurple;
+ width:50rem;
+ padding-top:200px;
+  height:33rem;
+   
+}
+
+.SearchField {
+ 
+}
+
+
+.react-search-field-input input {
+    background-color: rebeccapurple;
+     height:200px
+    }
+
+    input.react-search-field-input{
+        position: relative;
+        padding:250px;
+        height:420px
+    }
+
+    input {
+        position: relative;
+        padding:250px;
+        height:420px
+    }
+
+.SearchField {
+    text-align: center;
+    position: relative;
+    color: rebeccapurple;
+   top: 15px;
+  
+}
+
+.react-search-field-input{
+    height:122px;
+    padding:220px
+}
+
+
+@media only screen and (max-width: 568px) {
+    .react-search-field-input {
+        color: rebeccapurple;
+         width:20rem;
+          height:33rem;
+        }
+
+        .SearchField {
+            text-align: center;
+            position: relative;
+            color: rebeccapurple;
+           top: 33px;
+          
+        }
+
+}
