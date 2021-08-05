@@ -28,9 +28,10 @@ const ImageSlider = ({
 }) => {
     const [posts, SetPosts] = useState([]);
     const [Brands, SetBrands] = useState([]);
-    const uid = firebase.auth().currentUser;
+    // const uid = firebase.auth().currentUser;
     const classes = useStyles();
     const [loading, setLoading] = useState(false);
+    const {uid} = useParams();
     {
         firebase.auth().currentUser !== null &&
             firebase.auth().currentUser.uid === userId &&
@@ -84,7 +85,7 @@ const ImageSlider = ({
                     <div key={Brand.id} className="BrandName">
                    
                         <Link to={Brand.Brandname}>
-                            <h4 style={{ fontFamily: "sans-serif" }}>
+                            <h4 style={{fontFamily: "sans-serif" }}>
                                 {Brand.Brandname}
                                 
                             </h4>

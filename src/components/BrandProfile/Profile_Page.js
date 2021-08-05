@@ -94,7 +94,7 @@ function Profile__Page({imageUrl, userId, docID}) {
      
        {
            posts.map(({id, post })=> (
-
+ 
             post.BName == uid && (
              
                    <ImageSlider 

@@ -5,14 +5,12 @@ import 'firebase/auth';
   const config = ({
 // Vendorsbrand DB
 
-    apiKey: "AIzaSyBYmrD5ShbPez6KzMKOh_mGJiMo2VSYM3k",
-    authDomain: "fir-c2322.firebaseapp.com",
-    databaseURL: "https://fir-c2322.firebaseio.com",
-    projectId: "fir-c2322",
-    storageBucket: "fir-c2322.appspot.com",
-    messagingSenderId: "467254453140",
-    appId: "1:467254453140:web:6e76ad7eabc25a12ffa581",
-    measurementId: "G-53E7WENT2S"
+apiKey: "AIzaSyDKDxKTtBmmbqBsDBOEWDlLVl8UY6WxREM",
+authDomain: "vendorsbrand-ac2aa.firebaseapp.com",
+projectId: "vendorsbrand-ac2aa",
+storageBucket: "vendorsbrand-ac2aa.appspot.com",
+messagingSenderId: "761350509280",
+appId: "1:761350509280:web:541f3dbde0e803df6bb685"
 
 // Dev DB
  

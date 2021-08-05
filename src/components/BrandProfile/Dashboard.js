@@ -28,7 +28,7 @@ function CenteredTabs() {
                 >
                     {/* <Route path="/News" exact={true} component={News} /> */}
 
-                    <Tab label={t("Profile")}   style={{ outline: "none" }} />
+                    <Tab label={t("Store Products")} style={{ outline: "none" }} />
                     {/* <Tab label="Products" style={{ outline: "none" }} />  */}
                 </Tabs>
             </div>

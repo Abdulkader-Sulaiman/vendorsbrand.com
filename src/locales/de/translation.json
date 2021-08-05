@@ -20,7 +20,7 @@
    "Store Profile": "Geschäft Profil",
    "Type your Business Name": "Geben Sie Ihren Geschäftsname ein",
    "View Store":"Store besuchen",
-   "Store Settings": "Geschäft Einstellungen",
+   "Store Settings": "Store Einstellungen",
    "Here you can Publish or edit your Store Profile.":"Hier können Sie Ihr Geschäft Profil veröffentlichen oder bearbeiten.",
    "Enter your Business Name": "Geben Sie Ihren Geschäftsname ein",
    "Write something about your Brand": "Schreiben Sie etwas über Ihr Geschäft",
@@ -34,6 +34,39 @@
      "Germany": "Deutschland",
      "Choose any Country Market you like": "Wählen Sie einen beliebigen Ländermarkt aus",
      "Please go to your Email Inbox and verify your Email Address": 
-     "Bitte gehen Sie zu Ihrem E-Mail-Posteingang und bestätigen Sie Ihre E-Mail-Adresse"
+     "Bitte gehen Sie zu Ihrem E-Mail-Posteingang und bestätigen Sie Ihre E-Mail-Adresse",
+     "Here you can Publish your Store Profile.":"Hier können Sie Ihr Store-Profil veröffentlichen.",
+     "Store Products":"Store Produkte",
+     "Clothing Store": "Bekleidung Store",
+     "Restaurant":"Restaurant",
+     "Shoe Store":"Schuh Store",
+     "Supermarket":"Supermarkt",
+     "Sports Store":"Sport Store",
+     "Home Appliances Store":"Haushaltsgeräte Store",
+     "Book Store":"Bücher Store",
+     "Food Store":"Lebensmittel Store",
+     "Sanitary Ware Store":"Sanitärartikel Store",
+     "Gaming Store":"Spiele Store",
+     "Perfume Store":"Parfüm Store",
+     "Mobile Store":"Handy, Mobiltelefon Store",
+     "Mobile Parts Store":"Mobilteile Store",
+     "Pet Store":"Haustier Store",
+     "Car Store":"Wagen Store",
+     "Stationery Store":"Schreibwaren Store",
+     "Computer Store":"Computer Store",
+     "Computer Parts Store":"Computerteile Store",
+     "Beverage Store":"Getränkemarkt",
+     "Coffee Store":"Kaffee Store",
+     "Baby Clothing Store":"Baby Kleidung Store",
+     "Women Clothing Store":"Bekleidungsgeschäft für Damen",
+     "Men's Clothing Store":"Bekleidungsgeschäft für Herren",
+     "Fashion Store":"Mode Store",
+     "Public Store":"Publik Store",
+     "Fruit and vegetable Store":"Obst und Gemüse Store",
+     "Bike Store":"Fahrrad Store",
+     "Bicycle parts Store":"Fahrradteile Store"
+   
+   
+   
     }
   

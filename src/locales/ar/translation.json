@@ -38,7 +38,38 @@
     "Choose any Country Market you like":"أختر سوق البلد الذي تريد",
     "My Store": "متجري",
     "Please go to your Email Inbox and verify your Email Address":
-    "يرجى الذهاب إلى صندوق البريدالإلكتروني الخاص بك لتأكيد البريدالإلكتروني"
-
+    "يرجى الذهاب إلى صندوق البريدالإلكتروني الخاص بك لتأكيد البريدالإلكتروني",
+    "Store Products": "منتجات المتجر",
+    
+    "Clothing Store":"متجر ألبسة",
+    "Restaurant":"مطعم",
+    "Shoe Store":"متجر أحذية",
+    "Supermarket":"سوبر ماركت",
+    "Sports Store":"متجر رياضة",
+    "Home Appliances Store":"متجر أدوات منزلية",
+    "Book Store":"متجر كتب",
+    "Food Store":"متجر مواد غذائية",
+    "Sanitary Ware Store":"متجر أدوات صحية",
+    "Gaming Store":"متجر ألعاب",
+    "Perfume Storep":"متجر عطور",
+    "Mobile Store":"متجر هواتف محمولة",
+    "Mobile Parts Store":"متجر قطع هواتف محمولة",
+    "Car Store":"متجر سيارات",
+    "Stationery Store":"متجر أدوات مكتبية",
+    "Computer Store":"متجر حواسيب",
+    "Computer Parts Store":"متجر قطع حواسيب",
+    
+    "Beverage Store":"متجر مشروبات",
+    "Coffee Store":"متجر قهوة",
+    "Baby Clothing Store":"متجر ملابس أطفال",
+    "Women Clothing Store":"متجر ملابس نسائية",
+    "Men's Clothing Store":"متجر ملابس رجالية",
+    "Fashion Store":"متجر موضة",
+    "Public Store":"منتجر عام",
+    "Fruit and Vegetable Store":" متجر خضار وفواكه",
+    "Bike Store":"متجر دراجات",
+    "Bicycle Parts Store":"متجر قطع دراجات"
+    
+   
 }
 
