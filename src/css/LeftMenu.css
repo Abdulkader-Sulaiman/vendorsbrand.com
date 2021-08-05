@@ -6,14 +6,15 @@
     overflow: auto;
     box-shadow: 0 0 30px #f3f1f1;
     background-color: #fff;
-     
+
 }
 
 
 *[dir="rtl"] .menuBar {
     padding: 0 80px;
      padding-bottom:10px;
-   
+     
+     
 }
 
 .SearchBar{
@@ -21,7 +22,6 @@
     textAlign: center;
     color: 'red';
     width:'50%';
-     
 }
 
  
@@ -35,8 +35,7 @@
     position: relative;
     bottom: 20px;
     right: 25px;
-    
-     
+ 
 }
 
 .logo a {
@@ -46,13 +45,13 @@
     text-transform: capitalize;
     position: relative;
     right: 15px;
-    
+   
 }
 
 .menuCon {
     width: calc(100% - 150px);
     float: left;
-     
+   
 }
 
 .ant-drawer-wrapper-body {
@@ -61,6 +60,7 @@
     padding: 0;
     left: 30px;
     overflow-x: hidden;
+   
 }
 
 *[dir="rtl"] .ant-drawer-wrapper-body {
@@ -75,15 +75,18 @@
 
 .ant-drawer-body{
     overflow-x: hidden;
+    
 }
 
 *[dir="rtl"] .ant-drawer-body {
     overflow-x: hidden;
+   
 }
 
  
 .ant-drawer .ant-drawer-content {
     overflow-x: hidden;
+    
 }
 
 *[dir="rtl"] .ant-drawer-title {
@@ -91,19 +94,21 @@
  position: relative;
  right: 70%;
 
+
 }
 
 .CloseCircle {
     position: relative;
     top: 10px;
     margin-left: -20px;
-
+   
 }
 
 *[dir="rtl"] .CloseCircle {
     position: relative;
     right: 173px;
-    top: 10px
+    top: 10px;
+    
 }
 .LanguageSelect {
   background-color: #1890ff;
@@ -113,21 +118,20 @@
 .menuCon .ant-menu-item {
     padding: 0px 5px;
     position: relative;
-    
+   
+   
 }
 
 .menuCon .ant-menu-submenu-title {
     padding: 10px 20px;
     display: flex;
     overflow-x: hidden;
-  
+ 
 }
 
 .menuCon .ant-menu-item a,
 .menuCon .ant-menu-submenu-title a {
     padding: 10px 15px;
- 
-   
 }
 
 .menuCon .ant-menu-horizontal {
@@ -135,11 +139,12 @@
     position: relative;
     display: flex;
     top: 10px;
-   
+  
 }
 
 .menuCon .leftMenu {
     float: right;
+  
 }
 
 .barsMenu {
@@ -150,13 +155,14 @@
     display: none;
     background: none;
     left: 25px;
-   
+    
 }
 
 
 *[dir="rtl"] .barsMenu {
     top: 5px;
     left: 40px;
+    
 }
 
 
@@ -165,7 +171,7 @@
     width: 20px;
     height: 2px;
     position: relative;
-    
+   
 }
 
 .barsBtn:after,
@@ -177,7 +183,6 @@
     left: 0;
     height: 2px;
     background: #1890ff;
-
 }
 
 .barsBtn:after {
@@ -190,6 +195,8 @@
     bottom: 6rem;
     margin: 0;
     right: 50px;
+  
+ 
 }
 
 .barsMenu > span {
@@ -242,7 +249,7 @@
         position: relative;
         bottom: 20px;
         right: 50px;
-       
+
     }
    
 }
@@ -253,4 +260,55 @@
     overflow-x: hidden;
     }
   
+    *[dir="rtl"] .menuBar {
+        padding: 0 80px;
+         padding-bottom:10px;
+        left: 150%;
+        
+    }
+
+ 
+    *[dir="rtl"] .menuBar {
+        padding: 0 90px;
+        border-bottom: solid 1px #e8e8e8;
+        overflow: auto;
+        box-shadow: 0 0 30px #f3f1f1;
+        background-color: #fff;
+        width:105%
+    }
+
+    *[dir="rtl"] .header {
+        width:105%
+          
+    }
+
+    *[dir="rtl"] .logo a {
+        display: inline-block;
+        font-size: 20px;
+        padding: 10px;
+        text-transform: capitalize;
+        position: relative;
+        right: 1px;
+       
+    }
+
+
+    *[dir="rtl"] .barsMenu {
+        background-color: #1890ff;
+        float: right;
+        height: 32px;
+        padding: 6px;
+        margin-top: 10px;
+        background: none;
+        left: 55px;
+        
+    }
+
+    *[dir="rtl"] .ant-drawer-title {
+
+        position: relative;
+        right: 75%;
+       
+       
+       }
   }

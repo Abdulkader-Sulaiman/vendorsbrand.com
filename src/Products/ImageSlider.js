@@ -12,7 +12,7 @@ import useStyles from './styles';
 import LocationOnTwoToneIcon from '@material-ui/icons/LocationOnTwoTone';
 import LocationOnRoundedIcon from '@material-ui/icons/LocationOnRounded';
 import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined';
-
+import { Button } from '@material-ui/core';
 const ImageSlider = ({
     Brandname,
     productName,
@@ -77,7 +77,7 @@ const ImageSlider = ({
                     <MenuItem docID={docID} />
                 )}
         </div>
-
+       
 
 
             {Brands.map((Brand) => {
@@ -85,16 +85,19 @@ const ImageSlider = ({
                     <div key={Brand.id} className="BrandName">
                    
                         <Link to={Brand.Brandname}>
-                            <h4 style={{fontFamily: "sans-serif" }}>
+                            <h4 style={{
+                            fontFamily: "sans-serif",
+                           
+                             }}>
+                             
                                 {Brand.Brandname}
-                                
                             </h4>
                         </Link>
                     </div>
                 );
             })}
             <div style={{ textAlign: 'center' }}>
-           
+
 <h6 style={{textAlign: 'center', color:'rgb(138, 141, 145)'}}> <LocationOnOutlinedIcon style={{fontSize:'28px'}}/> {ProdctLocation}</h6>
             </div>
            

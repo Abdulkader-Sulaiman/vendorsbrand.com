@@ -11,7 +11,7 @@ import "../../css/Settings.css";
 import UploadProduct from "../../Products/UploadProduct";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
-
+import Alert from '@material-ui/lab/Alert';
 
 import usePlacesAutocomplete, {
     getGeocode,
@@ -64,11 +64,6 @@ function Settings(props) {
     const [region, setRegion] = useState("");
     const [selectedClient, setSelectedClient] = useState([]);
 
-    const options = [
-        { value: "chocolate", label: "Chocolate" },
-        { value: "strawberry", label: "Strawberry" },
-        { value: "vanilla", label: "Vanilla" },
-    ];
 
     function handleSelectChange(event) {
         setSelectedClient(event.target.value);
@@ -131,7 +126,6 @@ function Settings(props) {
             .set({
                 Brandname: Brandname,
                 ProdctLocation: value,
-
                 docID: docID,
                 // (e) => setPrductPrice(e.target.value)} value={productPrice}
                 timestamp: firebase.firestore.FieldValue.serverTimestamp(),
@@ -291,6 +285,7 @@ function Settings(props) {
                                     autocomplete="false"
                                     className="storName"
                                     required
+                                   
                                 />
 
                                 <div></div>
@@ -299,7 +294,7 @@ function Settings(props) {
                                         value={value}
                                         onChange={handleInput}
                                         disabled={!ready}
-                                        placeholder="Please enter your Store Location"
+                                        placeholder={t("Please enter your Store Location")}
                                         className="Location_input"
                                     />
 
@@ -307,15 +302,16 @@ function Settings(props) {
                                         <ul>{renderSuggestions()}</ul>
                                     )}
                                 </div>
-
+                                
                                 <select
                                     value={selectedClient}
                                     onChange={handleSelectChange}
                                     className="SelectStoreType"
                                 >
-                                    <option disabled>
-                                        Please Enter your Store type
+                                    <option value="" disabled >
+                                       {t("Please Enter your Store type")}
                                     </option>
+                                   
                                     <option value={t("Clothing Store")}>
                                     {t("Clothing Store")}
                                     </option>

@@ -133,3 +133,80 @@
     margin-right: 0;
     font-weight: bold;
 }
+
+
+*[dir="rtl"] .storName {
+        
+    margin: 10px;
+    justify-content: center;
+    padding: 10px;
+    border: 1px solid #888;
+    outline-color: rgb(98, 169, 240);
+    width: 100%;
+ 
+}
+*[dir="rtl"] .Location_input {
+
+margin: 10px;
+justify-content: center;
+padding: 10px;
+border: 1px solid #888;
+outline-color: rgb(98, 169, 240);
+width: 100%;
+
+}
+
+
+*[dir="rtl"]  .SelectStoreType {
+justify-content: center;
+position: relative;
+width: 100%;
+right: 10px;
+top: 10px;
+padding: 12px;
+cursor: pointer;
+
+}
+
+
+
+@media only screen and (max-width: 600px) {
+
+    
+   
+     *[dir="rtl"] .storName {
+        
+            margin: 10px;
+            justify-content: center;
+            padding: 10px;
+            border: 1px solid #888;
+            outline-color: rgb(98, 169, 240);
+            width: 100%;
+         
+     }
+     *[dir="rtl"] .Location_input {
+        
+        margin: 10px;
+        justify-content: center;
+        padding: 10px;
+        border: 1px solid #888;
+        outline-color: rgb(98, 169, 240);
+        width: 100%;
+     
+ }
+
+
+ *[dir="rtl"]  .SelectStoreType {
+    justify-content: center;
+   position: relative;
+   width: 100%;
+   right: 10px;
+   top: 10px;
+   padding: 12px;
+   cursor: pointer;
+   
+}
+ 
+     
+   }
+ 

@@ -40,7 +40,8 @@
     "Please go to your Email Inbox and verify your Email Address":
     "يرجى الذهاب إلى صندوق البريدالإلكتروني الخاص بك لتأكيد البريدالإلكتروني",
     "Store Products": "منتجات المتجر",
-    
+    "Please enter your Store Location":"من فضلك ادخل موقع المتجر الخاص بك",
+
     "Clothing Store":"متجر ألبسة",
     "Restaurant":"مطعم",
     "Shoe Store":"متجر أحذية",
@@ -68,7 +69,9 @@
     "Public Store":"منتجر عام",
     "Fruit and Vegetable Store":" متجر خضار وفواكه",
     "Bike Store":"متجر دراجات",
-    "Bicycle Parts Store":"متجر قطع دراجات"
+    "Bicycle Parts Store":"متجر قطع دراجات",
+    "Here you can Publish your Store Profile.":"هنا يتم رفع المتجر الخاص بك على الإنترنت",
+    "Please Enter your Store type":"الرجاء إدخال نوع متجرك"
     
    
 }

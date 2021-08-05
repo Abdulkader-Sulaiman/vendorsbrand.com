@@ -64,8 +64,9 @@
      "Public Store":"Publik Store",
      "Fruit and vegetable Store":"Obst und Gemüse Store",
      "Bike Store":"Fahrrad Store",
-     "Bicycle parts Store":"Fahrradteile Store"
-   
+     "Bicycle parts Store":"Fahrradteile Store",
+     "Please enter your Store Location":"Bitte geben Sie Ihren Store-Standort ein",
+     "Please Enter your Store type":"Bitte geben Sie Ihren Store-Typ ein"
    
    
     }
