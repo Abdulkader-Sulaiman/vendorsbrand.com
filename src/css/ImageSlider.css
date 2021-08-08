@@ -126,6 +126,19 @@
     color: blue;
 }
 
+#productName {
+    /* margin-left: 0px;
+    margin-right: 77px; */
+    }
+
+    *[dir="rtl"] #productPrice {
+        position: relative;
+        margin-right: 65px;
+ }
+
+
+
+
 @media only screen and (max-width: 1024px) {
     .container {
         /* width: 41%; */
@@ -146,6 +159,7 @@
         /* top: 70px; */
         padding:10px;
     }
+
 }
 
 @media only screen and (max-width: 568px) {
@@ -160,5 +174,26 @@
     }
     .container{
         padding-bottom: 40em;
+    }
+
+    #productName {
+        position: relative;
+       margin: 20px;
+       }
+
+      #productPrice {
+           /* position: relative;
+           margin-left: 85px; */
+    }
+
+    *[dir="rtl"] #productName {
+        position: relative;
+        margin: 10px;
+      
+    }
+
+       *[dir="rtl"] #productPrice {
+           position: relative;
+           margin-left: 10px;
     }
 }

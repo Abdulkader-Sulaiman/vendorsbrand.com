@@ -128,6 +128,7 @@ const ImageSlider = ({
                             variant="h5"
                             component="h2"
                             style={{ position: "relative", marginTop: "50px"}}
+                            id="productName"
                         >
                             {productName}
                           
@@ -138,6 +139,7 @@ const ImageSlider = ({
                             variant="h5"
                             component="h2"
                             style={{ position: "relative", marginTop: "50px" }}
+                            id="productPrice"
                         >
                             {price}
                         </Typography>

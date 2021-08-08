@@ -22,13 +22,8 @@ function Profile__Page({imageUrl, userId, docID}) {
     const classes = useStyles();
     const [Brands, SetBrands] = useState([]);
     
-
-
-
-     
     var user = firebase.auth().currentUser;
     const ref = firebase.firestore().collection(uid);
-
 
     useEffect(() => {
         // Update the document title using the browser API
@@ -46,9 +41,6 @@ function Profile__Page({imageUrl, userId, docID}) {
       }, []);
 
 
-
-
-      
     // console.log(ref)
     if(loading){
         return <h1>Loading...</h1>;
@@ -62,7 +54,6 @@ function Profile__Page({imageUrl, userId, docID}) {
           slidesToScroll: 1
         };
         
-
         return (
             <>
 

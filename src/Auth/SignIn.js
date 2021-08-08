@@ -11,7 +11,7 @@ import Container from '@material-ui/core/Container';
 import { useAuth } from "../contexts/AuthContext"
 import { useHistory } from "react-router-dom"
 import { Form, Alert } from "react-bootstrap"
-import '../css/Signup.css';
+// import '../css/Signup.css';
 import { RocketTwoTone } from '@ant-design/icons';
 import { Link } from "react-router-dom"
 import Footer from '../components/footer/SignIn_footer'
@@ -28,8 +28,6 @@ function Copyright() {
         </Link>{' '}
         {new Date().getFullYear()}
         {'.'} */}
-        
-
       </Typography>
       
     );
