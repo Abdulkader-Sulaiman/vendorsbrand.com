@@ -12,7 +12,7 @@
     justify-content: center;
     /* height: 300px; */
      top: 15px;
-    
+   
 }
 
 .container {
@@ -30,7 +30,7 @@
     /* padding-bottom: 650px; */
     padding:1px;
    border-radius: 3px;
-    
+   
    
 }
 
@@ -74,7 +74,13 @@
     padding: 0px;
     position: relative;
     height: 200px;
+
+ 
+
 }
+
+
+
 
 
 @media only screen and (max-width: 700px) {
@@ -162,7 +168,7 @@
 
 }
 
-@media only screen and (max-width: 568px) {
+@media only screen and (max-width: 600px) {
     .container {
         width: 90%;
         cursor: pointer;
@@ -171,14 +177,17 @@
        margin-bottom: 40px;
         /* background-color: royalblue; */
         padding-bottom: 830px;
+      
     }
     .container{
         padding-bottom: 40em;
+      
     }
 
     #productName {
-        position: relative;
-       margin: 20px;
+        /* position: relative;
+       margin: 20px; */
+      
        }
 
       #productPrice {
@@ -197,3 +206,6 @@
            margin-left: 10px;
     }
 }
+
+
+

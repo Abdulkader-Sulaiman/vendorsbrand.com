@@ -48,11 +48,15 @@ function App() {
                                         path={ROUTES.SignUp}
                                         component={SignUp}
                                     />
+                                    {/*  */}
+                                    
                                     <Route
                                         exact
                                         path={ROUTES.Profile}
-                                        component={ProfilePage}
+                                         component={ProfilePage}
                                     />
+                                    {/*  */}
+
                                     {/* <Route exact path="/forgot-password" component={ForgotPassword} /> */}
                                     {/*exact هون مافي شي محدد يروح عليه  لذالك بلا ال*/}
                                     <Route
