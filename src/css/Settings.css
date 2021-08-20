@@ -18,6 +18,15 @@
     width: 100%;
 }
 
+
+
+.makeStyles-paper-13{
+    width: 50%;
+    height: 45% auto;
+ 
+}
+
+
 .Location_input {
 
     margin: 6px;
@@ -26,6 +35,7 @@
     border: 1px solid #888;
     outline-color: rgb(98, 169, 240);
     width: 100%;
+    
 }
 
 
@@ -35,8 +45,26 @@
 
     position: relative;
     margin: 10px;
-    width: 100%;
-    padding: 10px;
+    width: 50%;
+    padding: 5px;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    font-size: large;
+    background-color: #1890ff;
+    border-radius: 6px;
+    color: #ffffff;
+    top: 60px;
+    right:10px;
+}
+
+
+.cancel {
+    position: relative;
+    margin: 10px;
+    width: 50%;
+    padding: 5px;
     background-color: white;
     justify-content: center;
     align-items: center;
@@ -45,8 +73,22 @@
     background-color: #1890ff;
     border-radius: 3.5px;
     color: #ffffff;
-    top: 30px;
+    bottom: 10px;
+    left:50%;
 }
+
+
+.storeInfo button {
+    background-color: #1890ff;
+    color: #ffffff;
+}
+
+
+
+
+
+
+
 
 #name {
     position: relative;
@@ -88,21 +130,6 @@
     top: 35px;
 } */
 
-.cancel {
-    position: relative;
-    margin: 10px;
-    width: 100%;
-    padding: 10px;
-    background-color: white;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid white;
-    font-size: large;
-    background-color: #1890ff;
-    border-radius: 3.5px;
-    color: #ffffff;
-    top: 15px;
-}
 
 .cancel:hover {
     color: #888;
@@ -172,8 +199,24 @@ cursor: pointer;
 
 @media only screen and (max-width: 600px) {
 
+    .makeStyles-paper-13{
+        width: 90%;
+    }
     
+
+
+
+   .Location_input {
+        
+        display: inline-block;
+        justify-content: center;
+        
+        border: 1px solid #888;
+        outline-color: rgb(98, 169, 240);
+        min-width: 40px;
    
+ }
+
      *[dir="rtl"] .storName {
         
             margin: 10px;
@@ -192,9 +235,8 @@ cursor: pointer;
         border: 1px solid #888;
         outline-color: rgb(98, 169, 240);
         width: 100%;
-     
+    
  }
-
 
  *[dir="rtl"]  .SelectStoreType {
     justify-content: center;
@@ -206,7 +248,5 @@ cursor: pointer;
    cursor: pointer;
    
 }
- 
-     
    }
  

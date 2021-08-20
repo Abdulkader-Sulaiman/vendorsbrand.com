@@ -14,10 +14,20 @@ body {
     width: 100%;
     background: hsl(214, 100%, 95%);
     position: relative;
+    height: 100%;
     
 }
 body {
-    background: hsl(214, 100%, 95%);
+    /* background: hsl(214, 100%, 95%); */
+    background-image: url('../../src/images/location.png');
+    background-repeat:no-repeat;
+    background-align: center;
+    background-size: 410px;
+    background-position:50% 80%;
+    position: relative;
+     background-color: #e5f1ff;  
+  
+    
 }
 
 
@@ -91,5 +101,5 @@ a + a {
 
 #products_Profile {
     position: relative;
-    margin-top:-50px;
+    margin-top:50px;
 }

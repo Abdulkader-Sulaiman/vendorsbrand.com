@@ -279,9 +279,11 @@ function getBrandData() {
         {/* {currentBrandLocation.Store_location} 
         {currentBrandName.Brandname} */}
     </div>
-      <Button  className="imageupload__button" onClick={handleUpload}>
+      <Button  className="imageupload__button" onClick={handleUpload}
+      className="uploadBtn">
       {t("Upload")}</Button>
-    <Button onClick={handleClose}>{t("Cancel")}</Button>
+    <Button onClick={handleClose}
+     className="cancelBtn">{t("Cancel")}</Button>
     </form>
                 </main>
             </div>

@@ -12,12 +12,14 @@ import UploadProduct from "../../Products/UploadProduct";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import Alert from '@material-ui/lab/Alert';
-
+import { TextField } from '@material-ui/core';
 import usePlacesAutocomplete, {
     getGeocode,
     getLatLng,
 } from "use-places-autocomplete";
 import useOnclickOutside from "react-cool-onclickoutside";
+import { Select } from '@material-ui/core';
+import { ButtonBase , Button} from '@material-ui/core';
 
 function loadScript(src, position, id) {
     if (!position) {

@@ -27,7 +27,7 @@ const LeftMenu = () => {
             <Avater />
 
             <Menu.Item className="SignUp">
-                <h5>
+                <h5 style={{position: "relative", left: "5px"}}>
                     <Link to="SignUp" id="SignUp">
                         {t("Sign Up")}
                     </Link>

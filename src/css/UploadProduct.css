@@ -3,11 +3,18 @@
         Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-.formContainer {
+/* .formContainer {
     justify-content: center;
     padding: 10px;
   
+} */
+
+.makeStyles-paper-11{
+    width: 50%;
 }
+
+
+
 
 .formContainer input {
     margin: 10px;
@@ -16,6 +23,7 @@
     border: 1px solid #888;
     outline-color: rgb(98, 169, 240);
     width: 100%;
+    
 }
 
 .formContainer textarea {
@@ -32,23 +40,55 @@
 }
 
 .formContainer button {
-    position: relative;
-    margin: 10px;
-    width: 30%;
-    padding: 6px;
+    /* position: relative;
+    margin: 0.0px;
+    min-width: 30%;
+   
     background-color: white;
-    justify-content: center;
     align-items: center;
     font-size: large;
     background-color: #1890ff;
     border-radius: 3.5px;
     color: #ffffff;
+   left: 13px; */
+   background-color: #1890ff;
+  color: white;
+  min-width: 40%;
+  
 }
+
+.uploadBtn {
+    justify-content: center;
+    left: 10%; 
+}
+
+.cancelBtn {
+    position: relative;
+   
+    align-items: center;
+    font-size: large;
+    background-color: #1890ff;
+    border-radius: 3.5px;
+    color: #ffffff;
+   left: 15%; 
+ 
+}
+
+
 
 @media only screen and (max-width: 600px) {
     .formContainer button {
         width: 42%;
+        
     }
+
+    .makeStyles-paper-11{
+        width: 90%;
+    }
+    
+
+    
+
 }
 
 .formContainer button:hover {

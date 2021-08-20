@@ -34,8 +34,8 @@
 .ant-menu {
     position: relative;
     bottom: 20px;
-    right: 25px;
- 
+    right: 9px;
+     
 }
 
 .logo a {
@@ -60,7 +60,6 @@
     padding: 0;
     left: 30px;
     overflow-x: hidden;
-   
 }
 
 *[dir="rtl"] .ant-drawer-wrapper-body {
@@ -68,14 +67,11 @@
     top: 0px;
     padding: 0;
     left: 15px;
-    
 }
-
 
 
 .ant-drawer-body{
     overflow-x: hidden;
-    
 }
 
 *[dir="rtl"] .ant-drawer-body {
@@ -83,10 +79,10 @@
    
 }
 
- 
+
 .ant-drawer .ant-drawer-content {
     overflow-x: hidden;
-    
+
 }
 
 *[dir="rtl"] .ant-drawer-title {
@@ -100,7 +96,7 @@
 .CloseCircle {
     position: relative;
     top: 10px;
-    margin-left: -20px;
+    margin-left: -5px;
    
 }
 
@@ -112,6 +108,7 @@
 }
 .LanguageSelect {
   background-color: #1890ff;
+
 }
 
 
@@ -126,12 +123,13 @@
     padding: 10px 20px;
     display: flex;
     overflow-x: hidden;
- 
+  
 }
 
 .menuCon .ant-menu-item a,
 .menuCon .ant-menu-submenu-title a {
     padding: 10px 15px;
+
 }
 
 .menuCon .ant-menu-horizontal {
@@ -144,7 +142,7 @@
 
 .menuCon .leftMenu {
     float: right;
-  
+    
 }
 
 .barsMenu {
@@ -155,14 +153,14 @@
     display: none;
     background: none;
     left: 25px;
-    
+  
 }
 
 
 *[dir="rtl"] .barsMenu {
     top: 5px;
     left: 40px;
-    
+   
 }
 
 

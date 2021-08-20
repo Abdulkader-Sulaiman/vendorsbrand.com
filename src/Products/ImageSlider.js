@@ -85,13 +85,15 @@ const ImageSlider = ({
                     <div key={Brand.id} className="BrandName">
                    
                         <Link to={Brand.Brandname}>
-                            <h4 style={{
+                            <h3 style={{
                             fontFamily: "sans-serif",
-                           
+                            color:'black',
+                            background:'#F6FAFF',
+                            borderRadius:'4px'
+                         
                              }}>
-                             
-                                {Brand.Brandname}
-                            </h4>
+                               {Brand.Brandname}
+                            </h3>
                         </Link>
                     </div>
                 );
