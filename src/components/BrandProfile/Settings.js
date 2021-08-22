@@ -11,15 +11,15 @@ import "../../css/Settings.css";
 import UploadProduct from "../../Products/UploadProduct";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
-import Alert from '@material-ui/lab/Alert';
-import { TextField } from '@material-ui/core';
+import Alert from "@material-ui/lab/Alert";
+import { TextField } from "@material-ui/core";
 import usePlacesAutocomplete, {
     getGeocode,
     getLatLng,
 } from "use-places-autocomplete";
 import useOnclickOutside from "react-cool-onclickoutside";
-import { Select } from '@material-ui/core';
-import { ButtonBase , Button} from '@material-ui/core';
+import { Select } from "@material-ui/core";
+import { ButtonBase, Button } from "@material-ui/core";
 
 function loadScript(src, position, id) {
     if (!position) {
@@ -65,7 +65,6 @@ function Settings(props) {
     const [country, setCountry] = useState("");
     const [region, setRegion] = useState("");
     const [selectedClient, setSelectedClient] = useState([]);
-
 
     function handleSelectChange(event) {
         setSelectedClient(event.target.value);
@@ -156,9 +155,7 @@ function Settings(props) {
             });
     };
 
-    const addnewItems2 = (
-        Brandname,
-    ) => {
+    const addnewItems2 = (Brandname) => {
         db.collection("userId")
             .doc(Brandname)
             .set({
@@ -237,8 +234,11 @@ function Settings(props) {
             } = suggestion;
 
             return (
-                <li key={place_id} onClick={handleSelect(suggestion)}
-                className="Location_suggestions">
+                <li
+                    key={place_id}
+                    onClick={handleSelect(suggestion)}
+                    className="Location_suggestions"
+                >
                     <strong>{main_text}</strong> <small>{secondary_text}</small>
                 </li>
             );
@@ -287,7 +287,6 @@ function Settings(props) {
                                     autocomplete="false"
                                     className="storName"
                                     required
-                                   
                                 />
 
                                 <div></div>
@@ -296,7 +295,9 @@ function Settings(props) {
                                         value={value}
                                         onChange={handleInput}
                                         disabled={!ready}
-                                        placeholder={t("Please enter your Store Location")}
+                                        placeholder={t(
+                                            "Please enter your Store Location"
+                                        )}
                                         className="Location_input"
                                     />
 
@@ -304,36 +305,36 @@ function Settings(props) {
                                         <ul>{renderSuggestions()}</ul>
                                     )}
                                 </div>
-                                
+
                                 <select
                                     value={selectedClient}
                                     onChange={handleSelectChange}
                                     className="SelectStoreType"
                                 >
-                                    <option value="" disabled >
-                                       {t("Please Enter your Store type")}
+                                    <option value="" disabled>
+                                        {t("Please Enter your Store type")}
                                     </option>
-                                   
+
                                     <option value={t("Clothing Store")}>
-                                    {t("Clothing Store")}
+                                        {t("Clothing Store")}
                                     </option>
                                     <option value={t("Restaurant")}>
-                                    {t("Restaurant")}
+                                        {t("Restaurant")}
                                     </option>
                                     <option value={t("Shoe Store")}>
-                                    {t("Shoe Store")}
+                                        {t("Shoe Store")}
                                     </option>
                                     <option value={t("Supermarket")}>
-                                    {t("Supermarket")}
+                                        {t("Supermarket")}
                                     </option>
                                     <option value={t("Bike Store")}>
-                                    {t("Bike Store")}
+                                        {t("Bike Store")}
                                     </option>
                                     <option value={t("Bicycle Parts Store")}>
-                                            {t("Bicycle Parts Store")}
+                                        {t("Bicycle Parts Store")}
                                     </option>
                                     <option value={t("Sports Store")}>
-                                          {t("Sports Store")}
+                                        {t("Sports Store")}
                                     </option>
                                     <option value={t("Home Appliances Store")}>
                                         {t("Home Appliances Store")}
@@ -342,59 +343,63 @@ function Settings(props) {
                                         {t("Book Store")}
                                     </option>
                                     <option value={t("Food Store")}>
-                                    {t("Food Store")}
+                                        {t("Food Store")}
                                     </option>
                                     <option value={t("Sanitary Ware Store")}>
                                         {t("Sanitary Ware Store")}
                                     </option>
                                     <option value={t("Gaming Store")}>
-                                      {t("Gaming Store")}
+                                        {t("Gaming Store")}
                                     </option>
                                     <option value={t("Perfume Storep")}>
-                                       {t("Perfume Storep")}
+                                        {t("Perfume Storep")}
                                     </option>
                                     <option value={t("Mobile Store")}>
-                                       {t("Mobile Store")}
+                                        {t("Mobile Store")}
                                     </option>
-                                    <option value={t("Car Store")}>{t("Car Store")}</option>
+                                    <option value={t("Car Store")}>
+                                        {t("Car Store")}
+                                    </option>
                                     <option value={t("Stationery Store")}>
-                                    {t("Stationery Store")}
+                                        {t("Stationery Store")}
                                     </option>
                                     <option value={t("Computer Store")}>
-                                    {t("Computer Store")}
+                                        {t("Computer Store")}
                                     </option>
                                     <option value={t("Computer Parts Store")}>
-                                    {t("Computer Parts Store")}
+                                        {t("Computer Parts Store")}
                                     </option>
                                     <option value={t("Mobile Store")}>
-                                    {t("Mobile Store")}
+                                        {t("Mobile Store")}
                                     </option>
                                     <option value={t("Mobile Parts Store")}>
-                                    {t("Mobile Parts Store")}
+                                        {t("Mobile Parts Store")}
                                     </option>
                                     <option value={t("Beverage Store")}>
-                                    {t("Beverage Store")}
+                                        {t("Beverage Store")}
                                     </option>
                                     <option value={t("Coffee Store")}>
-                                    {t("Coffee Store")}
+                                        {t("Coffee Store")}
                                     </option>
                                     <option value={t("Baby Clothing Store")}>
-                                    {t("Baby Clothing Store")}
+                                        {t("Baby Clothing Store")}
                                     </option>
                                     <option value={t("Women Clothing Store")}>
-                                    {t("Women Clothing Store")}
+                                        {t("Women Clothing Store")}
                                     </option>
                                     <option value={t("Men's Clothing Store")}>
-                                    {t("Men's Clothing Store")}
+                                        {t("Men's Clothing Store")}
                                     </option>
                                     <option value={t("Fashion Store")}>
-                                    {t("Fashion Store")}
+                                        {t("Fashion Store")}
                                     </option>
                                     <option value={t("Public Store")}>
-                                    {t("Public Store")}
+                                        {t("Public Store")}
                                     </option>
-                                    <option value={t("Fruit and Vegetable Store")}>
-                                    {t("Fruit and Vegetable Store")}
+                                    <option
+                                        value={t("Fruit and Vegetable Store")}
+                                    >
+                                        {t("Fruit and Vegetable Store")}
                                     </option>
                                 </select>
 

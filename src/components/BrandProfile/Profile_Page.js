@@ -100,13 +100,9 @@ function Profile__Page({imageUrl, userId, docID}) {
                     BName={post.BName}
                     ProdctLocation={post.ProdctLocation}
                />
-                
             ) 
-         
-                
            )) 
        }
-    
     </div>
     </>
     )}

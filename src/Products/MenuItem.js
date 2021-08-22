@@ -6,13 +6,20 @@ import firebase, { db } from "../firebase";
 import { DeleteOutlined } from "@ant-design/icons";
 import "antd/dist/antd.css";
 import { Popconfirm, message, Button } from "antd";
+import { useTranslation } from "react-i18next";
+
 
 const options = ["Delete"];
 const ITEM_HEIGHT = 48;
 
+
+
 export default function LongMenu({ docID }) {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
+    const { t } = useTranslation();
+
+
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -27,10 +34,10 @@ export default function LongMenu({ docID }) {
             });
     };
 
-    const text = "Are you sure to delete this Product?";
+    const text = t("Are you sure to delete this Product?");
 
-    function confirm() {
-        message.info("The product has been deleted.");
+    function confirm() { 
+        message.info(t("The product has been deleted."));
         db.collection("products")
             .doc(docID)
             .delete()
@@ -55,8 +62,8 @@ export default function LongMenu({ docID }) {
                         placement="left"
                         title={text}
                         onConfirm={confirm}
-                        okText="Yes"
-                        cancelText="No"
+                        okText={t("Yes")}
+                        cancelText={t("No")}
                     >
                    
                         <IconButton>

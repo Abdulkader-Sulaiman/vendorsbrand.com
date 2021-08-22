@@ -67,6 +67,14 @@
      "Bicycle parts Store":"Fahrradteile Store",
      "Please enter your Store Location":"Bitte geben Sie Ihren Store-Standort ein",
      "Please Enter your Store type":"Bitte geben Sie Ihren Store-Typ ein",
-     "Search for Online Stores everywhere you want":"Suchen Sie überall nach Online-Shops"
-    }
+     "Search for Online Stores everywhere you want":"Suchen Sie überall nach Online-Shops",
+    "The product has been deleted.": "Das Produkt wurde gelöscht.",
+     "Are you sure to delete this Product?":"Möchten Sie dieses Produkt wirklich löschen?",
+    "Yes": "Ja",
+    "No": "Nein",
+    "Product Name is required.": "Produktname ist erforderlich.",
+    "Product Price is required.": "Produktpreis ist erforderlich.",
+    "Product Description is required.": "Produktbeschreibung ist erforderlich."
+
+}
   
