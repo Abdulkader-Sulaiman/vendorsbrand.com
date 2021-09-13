@@ -177,6 +177,7 @@ function UploadProduct() {
                         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                         images: fileDownloadUrls,
                         BName: currentBrandData.Brandname,
+                        location_Geohash: currentBrandData.location_Geohash,
                         ProdctLocation: currentBrandData.ProdctLocation,
                         userId: userId,
                         docID: docID,

@@ -100,7 +100,7 @@ const ImageSlider = ({
             })}
             <div style={{ textAlign: 'center' }}>
 
-<h6 style={{textAlign: 'center', color:'rgb(138, 141, 145)'}}> <LocationOnOutlinedIcon style={{fontSize:'28px'}}/> {ProdctLocation}</h6>
+<h6 style={{textAlign: 'center', color:'rgb(138, 141, 145)'}}> <LocationOnOutlinedIcon style={{fontSize:'28px'}}/>{ProdctLocation}</h6>
             </div>
            
             {/* <div>Test it</div> */}

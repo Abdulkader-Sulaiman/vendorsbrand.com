@@ -13,13 +13,22 @@ import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import Alert from "@material-ui/lab/Alert";
 import { TextField } from "@material-ui/core";
-import usePlacesAutocomplete, {
-    getGeocode,
-    getLatLng,
-} from "use-places-autocomplete";
+// import usePlacesAutocomplete, {
+//     getGeocode,
+//     getLatLng,
+// } from "use-places-autocomplete";
 import useOnclickOutside from "react-cool-onclickoutside";
 import { Select } from "@material-ui/core";
 import { ButtonBase, Button } from "@material-ui/core";
+import { geolocated } from "react-geolocated";
+
+import PlacesAutocomplete, {
+    geocodeByAddress,
+    getLatLng
+  } from "react-places-autocomplete";
+
+  import Geohash from 'latlon-geohash';
+
 
 function loadScript(src, position, id) {
     if (!position) {
@@ -49,7 +58,8 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function Settings(props) {
+function Settings() {
+   
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
     const [Brandname, setBrandname] = useState("");
@@ -65,23 +75,16 @@ function Settings(props) {
     const [country, setCountry] = useState("");
     const [region, setRegion] = useState("");
     const [selectedClient, setSelectedClient] = useState([]);
+    const [state, setState] = useState();
+    
 
     function handleSelectChange(event) {
         setSelectedClient(event.target.value);
     }
 
-    const {
-        ready,
-        value,
-        suggestions: { status, data },
-        setValue,
-        clearSuggestions,
-    } = usePlacesAutocomplete({
-        requestOptions: {
-            /* Define search scope here */
-        },
-        debounce: 300,
-    });
+  
+        
+    
 
     let userId = firebase.auth().currentUser.uid;
     const addItem = (Brandname, write_something, foundedBy, Headquarters) => {
@@ -93,7 +96,7 @@ function Settings(props) {
                 // foundedBy: foundedBy,
                 // Headquarters: Headquarters,
                 // brandIndustry: brandIndustry,
-                Store_location: value,
+              //  Store_location: value,
                 Store_type: selectedClient,
                 timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             })
@@ -126,7 +129,9 @@ function Settings(props) {
             .doc(userID)
             .set({
                 Brandname: Brandname,
-                ProdctLocation: value,
+                ProdctLocation: address,
+                location_Geohash: Location_Geohash,
+                location_Geopoint: new firebase.firestore.GeoPoint(coordinates.lat, coordinates.lng ),
                 docID: docID,
                 // (e) => setPrductPrice(e.target.value)} value={productPrice}
                 timestamp: firebase.firestore.FieldValue.serverTimestamp(),
@@ -155,7 +160,39 @@ function Settings(props) {
             });
     };
 
+ 
+
+
+      // inputRef.current.focus
+      const handleChange = (event) => {
+        setBrandname(event.target.value);
+    };
+
+
+
+    const [address, setAddress] = React.useState("");
+    const [coordinates, setCoordinates] = React.useState({
+      lat: null,
+      lng: null
+    });
+  
+
+
+    const handleSelect = async value => {
+       
+        const results = await geocodeByAddress(value);
+        const latLng = await getLatLng(results[0]);
+       
+        setAddress(value);
+        setCoordinates(latLng);
+
+      };
+    
+
+
+
     const addnewItems2 = (Brandname) => {
+        
         db.collection("userId")
             .doc(Brandname)
             .set({
@@ -165,8 +202,10 @@ function Settings(props) {
                 // foundedBy: foundedBy,
                 // Headquarters: Headquarters,
                 // brandIndustry: brandIndustry,
-                Store_location: value,
-                timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+             //   Store_location: value,
+             location_Geohash: Location_Geohash,
+            location_Geopoint: new firebase.firestore.GeoPoint(coordinates.lat, coordinates.lng ),
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             })
             .then(function () {
                 console.log("Document successfully written!");
@@ -176,10 +215,6 @@ function Settings(props) {
             });
     };
 
-    // inputRef.current.focus
-    const handleChange = (event) => {
-        setBrandname(event.target.value);
-    };
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -201,48 +236,19 @@ function Settings(props) {
     const ref = useOnclickOutside(() => {
         // When user clicks outside of the component, we can dismiss
         // the searched suggestions by calling this method
-        clearSuggestions();
+       // clearSuggestions();
     });
 
     const handleInput = (e) => {
         // Update the keyword of the input element
-        setValue(e.target.value);
+        //setValue(e.target.value);
     };
 
-    const handleSelect = ({ description }) => () => {
-        // When user selects a place, we can replace the keyword without request data from API
-        // by setting the second parameter to "false"
-        setValue(description, false);
-        clearSuggestions();
+   
 
-        // Get latitude and longitude via utility functions
-        getGeocode({ address: description })
-            .then((results) => getLatLng(results[0]))
-            .then(({ lat, lng }) => {
-                console.log("📍 Coordinates: ", { lat, lng });
-            })
-            .catch((error) => {
-                console.log("😱 Error: ", error);
-            });
-    };
 
-    const renderSuggestions = () =>
-        data.map((suggestion) => {
-            const {
-                place_id,
-                structured_formatting: { main_text, secondary_text },
-            } = suggestion;
 
-            return (
-                <li
-                    key={place_id}
-                    onClick={handleSelect(suggestion)}
-                    className="Location_suggestions"
-                >
-                    <strong>{main_text}</strong> <small>{secondary_text}</small>
-                </li>
-            );
-        });
+    const Location_Geohash = Geohash.encode(coordinates.lat, coordinates.lng );
 
     return (
         <div>
@@ -291,20 +297,50 @@ function Settings(props) {
 
                                 <div></div>
                                 <div ref={ref}>
-                                    <input
-                                        value={value}
-                                        onChange={handleInput}
-                                        disabled={!ready}
-                                        placeholder={t(
-                                            "Please enter your Store Location"
-                                        )}
-                                        className="Location_input"
-                                    />
-
-                                    {status === "OK" && (
-                                        <ul>{renderSuggestions()}</ul>
-                                    )}
+                     
                                 </div>
+
+
+
+
+    <PlacesAutocomplete
+        value={address}
+        onChange={setAddress}
+        onSelect={handleSelect}
+       
+    >
+        {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+          <div>
+            {/* <p>Latitude: {coordinates.lat}</p>
+            <p>Longitude: {coordinates.lng}</p>
+            <h2>Geohash: {Location_Geohash} </h2> */}
+
+
+            <input {...getInputProps({ placeholder: "Type address" })} 
+            className="Location_input"
+
+            />
+
+            <div>
+              {loading ? <div>...loading</div> : null}
+
+              {suggestions.map(suggestion => {
+                const style = {
+                  backgroundColor: suggestion.active ? "#41b6e6" : "#fff"
+                };
+
+                return (
+                  <div {...getSuggestionItemProps(suggestion, { style })}>
+                    {suggestion.description}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+      </PlacesAutocomplete>
+
+
 
                                 <select
                                     value={selectedClient}

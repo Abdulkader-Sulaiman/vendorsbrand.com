@@ -1,32 +1,40 @@
 import React, { useState, useEffect, useRef } from "react";
-import { connect } from "react-redux";
 import ImageSlider from "../../Products/ImageSlider";
 import BrandProfile from "../BrandProfile/Profile_Page";
-import ProductList from "../../Products/ProductList";
-import Dashboard from "../Dashboard/Dashboard";
 import firebase, { db } from "../../firebase";
 import "../../css/ImageSlider.css";
 import "../../css/Home.css";
-
 import { useAuth } from "../../contexts/AuthContext";
 import "../../css/delete_Product.css";
 import { useTranslation } from "react-i18next";
-import usePlacesAutocomplete, {
-    getGeocode,
-    getLatLng,
-} from "use-places-autocomplete";
 import useOnclickOutside from "react-cool-onclickoutside";
 import ClearIcon from "@material-ui/icons/Clear";
 import { Button, Input } from "@material-ui/core";
 import { Autocomplete } from "@material-ui/lab";
+import Geocode from "react-geocode";
+import  UserLocation  from '../BrandProfile/UserLocation'
+import PlacesAutocomplete, {
+    geocodeByAddress,
+    getLatLng
+  } from "react-places-autocomplete";
 
-const mystyle = {
+  import * as firebaseApp from 'firebase/app'
+  import * as geofirex from 'geofirex'; 
+  import Geohash from 'latlon-geohash';
+  import useLocalStorage from 'react-use-localstorage';
+  import {reactLocalStorage} from 'reactjs-localstorage';
+  import { useSessionStorageString } from "react-use-window-sessionstorage";
+  
+
+
+  const mystyle = {
     color: "white",
     backgroundColor: "#1890ff",
     padding: "10px",
     fontFamily: "Arial",
     textAlign: "center",
     fontSize: "30px",
+   
 };
 
 function Home() {
@@ -39,68 +47,77 @@ function Home() {
     const [selectedClient, setSelectedClient] = useState([]);
     const [selected, setSelected] = React.useState([]);
     const localNotes = localStorage.getItem("notes");
-    // const [value,  setValue] = useState(localNotes);
+    const [value,  setValue] = useState(localNotes);
+    const [address, setAddress] = React.useState("");
+    const [GeoHash, SetGeoHash] = React.useState("");
+    const [coordinates, setCoordinates] = React.useState({
+      lat: null,
+      lng: null
+    });
+    const [user, setUser] = useState([], () => {
+      const localData = localStorage.getItem('Geohash');
+      return localData ? JSON.parse(localData) : [];
+  });
+
+  const [name, setName] = useLocalStorage("");
+  const [GeoState, setgeoState] = useState("");
+ 
+
+
+  console.log(user);
+    // const [lat_lngTOgeohash, setlat_lngTOgeohash] = React.useState("");
 
     const handleChange = (e) => {
-        setValue(e.target.value);
+      setAddress(e);
+      localStorage.setItem("inputValue", e);
+
+  console.log("HHHH")
+     
+   
     };
 
-    const {
-        ready,
-        value = localStorage.getItem("myLocationValue"),
-        suggestions: { status, data },
-        setValue = localStorage.getItem("myLocationValue"),
-
-        clearSuggestions,
-    } = usePlacesAutocomplete({
-        requestOptions: {
-            /* Define search scope here */
-        },
-        debounce: 300,
-    });
-
-    const ref = useOnclickOutside(() => {
-        // When user clicks outside of the component, we can dismiss
-        // the searched suggestions by calling this method
-        clearSuggestions();
-    });
-
-    const handleSelect = ({ description }) => () => {
-        // When user selects a place, we can replace the keyword without request data from API
-        // by setting the second parameter to "false"
-        setValue(description, false);
-        clearSuggestions();
-        localStorage.setItem("myLocationValue", description);
-        // Get latitude and longitude via utility functions
-        getGeocode({ address: description })
-            .then((results) => getLatLng(results[0]))
-            .then(({ lat, lng }) => {
-                console.log("📍 Coordinates: ", { lat, lng });
-            })
-            .catch((error) => {
-                console.log("😱 Error: ", error);
-            });
+    const handleInput3 = (e) => {
+      localStorage.setItem("lat", coordinates.lat);
+      localStorage.setItem("lng", coordinates.lng);
     };
 
-    const renderSuggestions = () =>
-        data.map((suggestion) => {
-            const {
-                place_id,
-                structured_formatting: { main_text, secondary_text },
-            } = suggestion;
+    const handleInput= (e) => {
+      setName(e.target.value)
+     
+    };
 
-            return (
-                <li
-                    key={place_id}
-                    onClick={handleSelect(suggestion)}
-                    className="Location_suggestions_Home"
-                >
-                    <strong >{main_text}</strong>
-                    <small  >{secondary_text}</small>
-                </li>
-            );
-        });
+    useEffect(() => {
+      // Get the item from local storage. JSON.parse(null) returns null rather than throws
+      // Get from local storage before setting it
+      const localTodos = localStorage.getItem("users");
+     
+    }, []);
+  
 
+ //   localStorage.setItem("inputV", name);
+ const lat = localStorage.getItem("lat")
+ const lng = localStorage.getItem("lng")
+ const GetGeoHash = localStorage.getItem("MYGeohash")
+
+
+    useEffect(() => {
+      setAddress(localStorage.getItem("inputValue"));
+    }, []);
+    const lat_lngTOgeohash = Geohash.encode(coordinates.lat, coordinates.lng);
+    console.log(coordinates.lat, coordinates.lng)
+    const Location_Geohash =  localStorage.getItem("Geohash")
+   
+
+
+    const handleSelect = async value => {
+      setAddress(value);
+      const results = await geocodeByAddress(value);
+      const latLng = await getLatLng(results[0]);
+      setCoordinates(latLng);
+      localStorage.setItem("inputValue",  value);
+      setgeoState(lat_lngTOgeohash);
+    };
+ 
     useEffect(() => {
         db.collection("products")
             .orderBy("timestamp", "desc")
@@ -120,73 +137,78 @@ function Home() {
     if (loading) {
         return <h1>Loading...</h1>;
     }
+ 
+    localStorage.setItem("address", address);
+    const getLat = localStorage.getItem("lat");
+    const getLng = localStorage.getItem("lng");
 
-    const myLocation = localStorage.getItem("myLocationValue");
+//********************************
+ // localStorage.setItem("Geohash", lat_lngTOgeohash)
+  //window.sessionStorage.setItem("key", lat_lngTOgeohash);
+//********************************
 
-    function handleLocalStorageClear(e) {
-        localStorage.removeItem("myLocationValue");
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      console.log('do validate')
+    localStorage.setItem("lat", coordinates.lat);
+    localStorage.setItem("lng", coordinates.lng);
 
-        setValue("");
+    setgeoState(localStorage.setItem("Geohash", lat_lngTOgeohash)) 
+
     }
+  }
 
     return (
         <div className="Home">
-            <form ref={ref}>
-                <input
-                    // value={value}
-                    // onChange={handleInput}
-                    value={myLocation}
-                    type="search"
-                    onChange={handleChange}
-                    placeholder={t("Search for Online Stores everywhere you want")}
-                    className="Location_input"
-                    id="Location_input"
-                    style={
-                        {
-                            //    justifyContent: 'center',
-                            //    textAlign: 'center',
-                            //    position:'relative',
-                            //     margin:'auto',
-                            //     display: 'block',
-                        }
-                    }
-                />
-
-                <Button
-                    color="primary"
-                    onClick={handleLocalStorageClear}
-                    type="submit"
-                    //  style={{bottom:'40px', left:'71%'}}
-                    className="ClearLocationBTN"
-                >
-                    <ClearIcon />
-                </Button>
-                {status === "OK" && <ul>{renderSuggestions()}</ul>}
-            </form>
-
-            {/*         
-      <div className="Selectt"> */}
-            {/* <ReactLanguageSelect
-      names={"international"}
-      onSelect={(languageCode)=>setSelectedLanguage(languageCode)}
-      /> */}
-
-            {/* <h3 className="h3Title" style={{textAlign:'center'}}>{t('Choose any Country Market you like')} </h3> */}
-            {/* <CountryDropdown
-        value={country}  
-        onChange={(val) => setCountry(val)}
-        className="CountryDropdown"
-        id="country"
-   
-       
-      />  */}
-
-            {/* </div> */}
-            {/* <h1 style={mystyle}>Here you will find Vendors Products</h1>  */}
+         {/* <UserLocation   /> */}
+     <form>
+            <PlacesAutocomplete
+        value={address}
+        onChange={handleChange}
+        onSelect={handleSelect}
+      >
+        {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+          <div>
+          <input {...getInputProps({ placeholder: t("Search for Online Stores everywhere you want") })}
+              className="Location_input"
+              id="Location_input"
+              type="search"
+              onKeyUp={handleKeyDown}
+            />
+           {/* <p>Latitude: {lat} </p>
+            <p>Longitude: {lng}</p>
+            <p>address: {address}</p>
+            <p>Geohash: { GetGeoHash }</p> */}
+            <div>
+              {loading ? <div>...loading</div> : null}
+              {suggestions.map(suggestion => {
+                const style = {
+                  backgroundColor: suggestion.active ? "#41b6e6" : "#fff"
+                };
+                return (
+                  <li 
+                  {...getSuggestionItemProps(suggestion, { mystyle })}
+                 style=
+                 {{
+                 // backgroundColor: suggestion.active ? "#41b6e6" : "#fff"
+                 }}
+                  className="Location_suggestions_Home"
+                  >
+                   <strong style={{cursor: "pointer"}}> {suggestion.description}</strong>
+                  </li>
+                );
+              })}
+        
+              {/* <button onClick={shoot}>Submit</button> */}
+            </div>
+          </div>
+        )}
+      </PlacesAutocomplete>
+      </form> 
             <div className="products">
                 {posts.map(
                     ({ id, post }) =>
-                        post.ProdctLocation == myLocation && (
+                    post.location_Geohash == Location_Geohash && (
                             <ImageSlider
                                 key={id}
                                 userId={post.userId}
@@ -197,12 +219,12 @@ function Home() {
                                 docID={post.docID}
                                 Brandname={post.Brandname}
                                 ProdctLocation={post.ProdctLocation}
-                            />
+                             //   LocationGeoHash={post.location_Geohash}
+                            />  
                         )
                 )}
             </div>
         </div>
     );
 }
-
 export default Home;
