@@ -39,7 +39,7 @@ function Profile__Page({imageUrl, userId, docID}) {
         //   var userUid = firebase.auth().currentUser.uid;
         //   setUserId(userUid)
       }, []);
-
+      console.log('Welcome-From Profile');
 
     // console.log(ref)
     if(loading){

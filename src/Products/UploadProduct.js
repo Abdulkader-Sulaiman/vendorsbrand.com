@@ -189,16 +189,16 @@ function UploadProduct() {
                 .catch((err) => console.log(err));
         }
         // Every User get there Products in a uid Colection
-        Promise.all(promises)
-            .then((fileDownloadUrls) => {
-                db.collection(userId).doc(docID).set({
-                    timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-                    images: fileDownloadUrls,
-                    userId: userId,
-                    docID: docID,
-                });
-            })
-            .catch((err) => console.log(err));
+        // Promise.all(promises)
+        //     .then((fileDownloadUrls) => {
+        //         db.collection(userId).doc(docID).set({
+        //             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        //             images: fileDownloadUrls,
+        //             userId: userId,
+        //             docID: docID,
+        //         });
+        //     })
+        //     .catch((err) => console.log(err));
 
         {
             Brands.map((Brand) => {
@@ -232,7 +232,7 @@ function UploadProduct() {
             }, 20000);
         }
     };
-
+ 
     return (
         <div>
             <p type="button" onClick={handleOpen}>

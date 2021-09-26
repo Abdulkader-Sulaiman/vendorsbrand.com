@@ -1,6 +1,45 @@
-* {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+* {font-family: Arial, Helvetica, sans-serif;}
+
+.label {
+ margin-top:15px
+}
+ 
+#pageName {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+#Location_inp {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    
+}
+
+
+#select {
+    width: 105%;
+    padding: 0px  ;
+    margin: 5px -7px;
+    box-sizing: border-box;
+}
+
+
+#Page_Type {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+#phoneNumber {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
 }
 
 #email {
@@ -24,23 +63,40 @@
     box-sizing: border-box;
 }
 
+#Location_inp {
+    border: none;
+    border-bottom: 2px solid rgb(24, 144, 255);
+}
+
+#phoneNumber {
+    border: none;
+    border-bottom: 2px solid rgb(24, 144, 255);
+}
+
+
+
+#pageName[type="text"] {
+    border: none;
+    border-bottom: 2px solid rgb(24, 144, 255);
+}
+
+
+ 
+
 #email[type="email"] {
     border: none;
     border-bottom: 2px solid rgb(24, 144, 255);
 }
 
-
-
+#pagename[type="text"] {
+    border: none;
+    border-bottom: 2px solid rgb(24, 144, 255);
+}
 
 #StoreName[type="text"] {
     border: none;
     border-bottom: 2px solid rgb(24, 144, 255);
 }
-
-
-
-
-
 
 #password[type="password"] {
     border: none;
@@ -51,3 +107,6 @@
     border: none;
     border-bottom: 2px solid rgb(24, 144, 255);
 }
+
+
+

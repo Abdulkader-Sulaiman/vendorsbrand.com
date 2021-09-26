@@ -1,5 +1,14 @@
-import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import React, { PropTypes } from "react";
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    Link,
+    Outlet,
+    useParams,
+} from "react-router-dom";
+
+import { Switch } from "react-router";
 import * as ROUTES from "./Routes/routes";
 import Dashboard from "./components/header/Centered_Tabs";
 import { AuthProvider } from "../src/contexts/AuthContext";
@@ -22,16 +31,15 @@ const theme = createMuiTheme({
 function App() {
     const { t } = useTranslation();
     return (
-        <ThemeProvider theme={theme}>
+        <div>
             <usePlacesAPI />
-
             <Router>
                 <div className="app">
                     <div className="language-select">
                         {/* <LanguageSelect /> */}
 
                         <AuthProvider>
-                            <Suspense fallback={<p>Login...</p>}>
+                            <Suspense>
                                 <Switch>
                                     <Route
                                         exact
@@ -49,20 +57,11 @@ function App() {
                                         component={SignUp}
                                     />
                                     {/*  */}
-                                    
+
                                     <Route
                                         exact
                                         path={ROUTES.Profile}
-                                         component={ProfilePage}
-                                    />
-                                    {/*  */}
-
-                                    {/* <Route exact path="/forgot-password" component={ForgotPassword} /> */}
-                                    {/*exact هون مافي شي محدد يروح عليه  لذالك بلا ال*/}
-                                    <Route
-                                        path="*"
-                                        exact={true}
-                                        component={NotFound}
+                                        component={ProfilePage}
                                     />
                                     {/* <Route path={ROUTES.NOT__FOUND} component={NotFound} /> */}
                                 </Switch>
@@ -71,7 +70,7 @@ function App() {
                     </div>
                 </div>
             </Router>
-        </ThemeProvider>
+        </div>
     );
 }
 

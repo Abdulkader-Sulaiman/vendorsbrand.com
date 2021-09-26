@@ -16,6 +16,24 @@ import { RocketTwoTone } from '@ant-design/icons';
 import { Link } from "react-router-dom"
 import Footer from '../components/footer/SignUp_footer'
 import { useTranslation } from "react-i18next";
+import Geohash from "latlon-geohash";
+import SelectOptions from "../components/SelectOptions";
+import firebase, { auth, db } from "../firebase";
+import PlacesAutocomplete, {
+    geocodeByAddress,
+    getLatLng,
+} from "react-places-autocomplete";
+
+const mystyle = {
+    // color: "white",
+    // backgroundColor: "#1890ff",
+    // padding: "10px",
+    // fontFamily: "Arial",
+    // textAlign: "center",
+    // fontSize: "30px",
+};
+
+
 
 function Copyright() {
   return (
@@ -50,6 +68,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 export default function SignUp() {
   const classes = useStyles();
   const emailRef = useRef()
@@ -60,6 +79,16 @@ export default function SignUp() {
   const [loading, setLoading] = useState(false)
   const history = useHistory()
   const { t } = useTranslation();
+  const [pageName, setpageName] = useState('');
+  const [Email, setEmail] = useState('');
+//   console.log(pageName)
+const [address, setAddress] = React.useState("");
+const [GeoHash, SetGeoHash] = React.useState("");
+const [GeoState, setgeoState] = useState("");
+const [coordinates, setCoordinates] = React.useState({
+    lat: null,
+    lng: null,
+});
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -71,11 +100,41 @@ export default function SignUp() {
       setLoading(true)
       await signup(emailRef.current.value, passwordRef.current.value)
       history.push("/")
-    } catch {
+    
+   const uid = firebase.auth().currentUser.uid;
+  db.collection('cites').doc(uid)
+  .set({
+    user_uid: 'H3IziIFg8TZtcQ7ERxxXcNilTcG2',
+    PageName: pageName,
+    Email:Email,
+    gender: 'male',
+    username: 'Abdul',
+    InputValue: 'Value6666',
+    text: 'submit User Data '
+  })} 
+    
+    
+    catch {
       setError("Failed to create an account")
     }
     setLoading(false)
   }
+
+  const lat_lngTOgeohash = Geohash.encode(coordinates.lat, coordinates.lng);
+  
+  const handleSelect = async (value) => {
+    setAddress(value);
+    const results = await geocodeByAddress(value);
+    const latLng = await getLatLng(results[0]);
+    setCoordinates(latLng);
+    localStorage.setItem("inputValue", value);
+    setgeoState(lat_lngTOgeohash);
+};
+
+  const handleChange = (e) => {
+    setAddress(e);
+    localStorage.setItem("inputValue", e);
+};
 
 
   return (
@@ -90,10 +149,114 @@ export default function SignUp() {
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit} className={classes.form} noValidate>
          
-          <Grid container spacing={2}>
+{/*  */}
+<Grid container spacing={2}>
           <Grid tem xs={12}>
        
-              <Form.Label>{t("Email")}</Form.Label>
+              <Form.Label className='label'>{t("Page name")}</Form.Label>
+              <Form.Control type="text" 
+              ref={emailRef} required 
+               fullWidth
+               variant="outlined"
+                required
+                fullWidth
+                id="pageName"
+                label="Page Name"
+                name="text"
+                onChange={e => setpageName(e.target.value)}
+               />
+           </Grid>
+           </Grid>
+{/*  */}
+
+<Grid container spacing={0}>
+          <Grid tem xs={12}>
+
+              <SelectOptions />
+           </Grid>
+           </Grid>
+   
+   
+
+   
+           <Form.Label className='label'>{t("Enter Location")}</Form.Label>
+           <Grid container spacing={2}>
+          <Grid tem xs={12}>
+ 
+{/* Do it here */}
+
+<PlacesAutocomplete
+                    value={address}
+                    onChange={handleChange}
+                    onSelect={handleSelect}
+                    id="Location_input"
+                >
+                    {({
+                        getInputProps,
+                        suggestions,
+                        getSuggestionItemProps,
+                        loading,
+                    }) => (
+                        <div>
+                            <Form.Control
+                                {...getInputProps({
+                                    placeholder: t(
+                                        "Search for Online Stores everywhere you want"
+                                    ),
+                                })}
+                                className="Location_input"
+                                 id="Location_inp"
+                                type="search"
+        
+                            />
+                            {/* <p>Latitude: {lat} </p>
+            <p>Longitude: {lng}</p>
+            <p>address: {address}</p>
+            <p>Geohash: { GetGeoHash }</p> */}
+                            <div>
+                                {loading ? <div>...loading</div> : null}
+                                {suggestions.map((suggestion) => {
+                                    const style = {
+                                        backgroundColor: suggestion.active
+                                            ? "#41b6e6"
+                                            : "#fff",
+                                    };
+                                    return (
+                                        <li
+                                            {...getSuggestionItemProps(
+                                                suggestion,
+                                                { mystyle }
+                                            )}
+                                            style={
+                                                {
+                                                    // backgroundColor: suggestion.active ? "#41b6e6" : "#fff"
+                                                }
+                                            }
+                                            className="Location_suggestions_Home"
+                                        >
+                                            <strong
+                                                style={{ cursor: "pointer" }}
+                                            >
+                                                {" "}
+                                                {suggestion.description}
+                                            </strong>
+                                        </li>
+                                    );
+                                })}
+
+                                {/* <button onClick={shoot}>Submit</button> */}
+                            </div>
+                        </div>
+                    )}
+                </PlacesAutocomplete>
+           </Grid>
+           </Grid>
+
+
+
+          <Grid container spacing={2}>
+          <Grid tem xs={12}>
+              <Form.Label className='label'>{t("Email")}</Form.Label>
               <Form.Control type="email" 
               ref={emailRef} required 
                fullWidth
@@ -104,11 +267,12 @@ export default function SignUp() {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                onChange={e => setEmail(e.target.value)}
                />
-            
            </Grid>
+  
            <Grid tem xs={12}>
-              <Form.Label>{t("Password")}</Form.Label>
+              <Form.Label className='label'>{t("Password")}</Form.Label>
               <Form.Control type="password" 
               ref={passwordRef} required  
               fullWidth 
@@ -120,24 +284,26 @@ export default function SignUp() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
-                
               />
             </Grid>
             <Grid item xs={12}>
-              <Form.Label>{t("Password Confirmation")}</Form.Label>
+              <Form.Label className='label'>{t("Password Confirmation")}</Form.Label>
               <Form.Control type="password" ref={passwordConfirmRef} required fullWidth  id="passwordConf"/>
             </Grid>
             <Button 
+            onSubmit={handleSubmit}
             disabled={loading} 
             className="w-100" 
             type="submit"
             fullWidth
             className={classes.submit}
             style={{background:'rgb(24, 144, 255)',
-            color:'white'
+            color:'white',
+            
             }}
             >
               {t("Sign Up")}
+            
             </Button>
             </Grid>
           </Form>
@@ -145,6 +311,7 @@ export default function SignUp() {
  
     <Grid item>
       <div className="w-100 text-center mt-2">
+      
       {t("Already have an account?")}    <Link to="/login" variant="body2">{t("Sign In")}</Link>
       </div>
       </Grid>
@@ -156,4 +323,3 @@ export default function SignUp() {
     </>
   );
 }
-
