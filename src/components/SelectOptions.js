@@ -53,7 +53,7 @@ const SelectOptions = () => {
           className="label"
           style={{marginBottom:'20px', position:'relative'}}
           >{t("Page Type")}</Form.Label>
-        
+    
             <SelectBox
               options={categories}
               name={"select1"}
