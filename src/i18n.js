@@ -32,7 +32,6 @@ i18n
     detection: {
       checkWhitelist: true
     },
-
     debug: false,
     whitelist: availableLanguages,
     interpolation: {
