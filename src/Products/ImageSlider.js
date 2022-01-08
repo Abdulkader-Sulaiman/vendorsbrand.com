@@ -13,6 +13,7 @@ import LocationOnTwoToneIcon from '@material-ui/icons/LocationOnTwoTone';
 import LocationOnRoundedIcon from '@material-ui/icons/LocationOnRounded';
 import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined';
 import { Button } from '@material-ui/core';
+import ReadMoreIcon from '@mui/icons-material/ReadMore';
 const ImageSlider = ({
     Brandname,
     productName,
@@ -24,7 +25,10 @@ const ImageSlider = ({
     product, 
     onAddToCart,
     BName,
-    ProdctLocation
+    ProdctLocation, 
+    profileUID,
+    PageName,
+    Location
 }) => {
     const [posts, SetPosts] = useState([]);
     const [Brands, SetBrands] = useState([]);
@@ -40,22 +44,6 @@ const ImageSlider = ({
             ));
     }
 
-    //REALTIME GET FUNCTION
-    function getBrand() {
-        Brandref.onSnapshot((querySnapshot) => {
-            const items = [];
-            querySnapshot.forEach((doc) => {
-                items.push(doc.data());
-            });
-            SetBrands(items);
-        });
-    }
-
-    const Brandref = firebase.firestore().collection(userId);
-    useEffect(() => {
-        getBrand();
-        // eslint-disable-next-line
-    }, []);
 
  const handleFocus = (event) => event.target.select();
     
@@ -69,9 +57,7 @@ const ImageSlider = ({
    
     return (
         <div className="container" style={{backgroundColor:'white'}}>
-        <div className="deleteBtn"
-        
-        >
+        <div className="deleteBtn">
             {firebase.auth().currentUser !== null &&
                 firebase.auth().currentUser.uid === userId && (
                     <MenuItem docID={docID} />
@@ -79,28 +65,14 @@ const ImageSlider = ({
         </div>
        
 
-
-            {Brands.map((Brand) => {
-                return (
-                    <div key={Brand.id} className="BrandName">
-                   
-                        <Link to={Brand.Brandname}>
-                            <h3 style={{
-                            fontFamily: "sans-serif",
-                            color:'black',
-                            background:'#F6FAFF',
-                            borderRadius:'4px'
-                         
-                             }}>
-                               {Brand.Brandname}
-                            </h3>
-                        </Link>
-                    </div>
-                );
-            })}
+            <h4 style={{ textAlign: 'center'}} ><a href={`shops/${PageName}/${profileUID}`}>
+            {PageName}
+            </a></h4>
             <div style={{ textAlign: 'center' }}>
 
-<h6 style={{textAlign: 'center', color:'rgb(138, 141, 145)'}}> <LocationOnOutlinedIcon style={{fontSize:'28px'}}/>{ProdctLocation}</h6>
+<h6 style={{textAlign: 'center', color:'rgb(138, 141, 145)'}}> <LocationOnOutlinedIcon style={{fontSize:'28px'}}/>
+{Location}
+</h6>
             </div>
            
             {/* <div>Test it</div> */}
@@ -118,48 +90,71 @@ const ImageSlider = ({
     <p className="description">{description}</p>   
     <h1 className="price">{price}</h1> */}
             </Slider>
-           
+         
             <Card className={classes.root}  >
-     
-                <CardMedia image={"image"} title={"Product Name"} />
+                {/* <CardMedia image={"image"} title={"Product Name"} /> */}
+               
+               {/* <h5 style={{ margin: "15px"}}>
+               <a href={`/AllMarkets/ProductPage/${docID}`}>
+               Details Page <ReadMoreIcon />
+                </a>
+               </h5> */}
 
-                <CardContent style={{height: "200px"}}>
-                    <div className={classes.cardContent}  >
-                        <Typography
+                <CardContent>
+               <a href={`/AllMarkets/ProductPage/${docID}`}>
+               {/* Details Page <ReadMoreIcon /> */}
+
+               <Typography
                             gutterBottom
-                            variant="h5"
+                            variant="h6"
                             component="h2"
-                            style={{ position: "relative", marginTop: "50px"}}
                             id="productName"
+                            style={{color: "#007185"}}
                         >
-                            {productName}
-                          
+                            {productName.substring(0,2)}
+                            is simply dummy text of the printing 
+                            is simply dummy text of
+                            the printing and typesetting industry
+                            the printing and typesetting industry...
+                            
+                        
                         </Typography>
 
                         <Typography
                             gutterBottom
                             variant="h5"
                             component="h2"
-                            style={{ position: "relative", marginTop: "50px" }}
+                            // style={{ position: "relative", marginTop: "50px" }}
+
                             id="productPrice"
                         >
                             {price}
                         </Typography>
+
+                </a>
+             
+                  
                         
-                    </div>
-                    <Typography
+                  
+
+                    {/* Description */}
+                   
+                    {/* <Typography
                         dangerouslySetInnerHTML={{ __html: description }}
                         variant="body2"
                         color="textSecondary"
                         component="p"
-                    />
+                    /> */}
+
+
                 </CardContent>
                 <CardActions disableSpacing className={classes.cardActions}>
-                    <IconButton aria-label="Add to Cart">
+                    {/* <IconButton aria-label="Add to Cart">
                         <AddShoppingCart />
-                    </IconButton>
+                    </IconButton> */}
                 </CardActions>
             </Card>
+
         </div>
     );
 };

@@ -1,0 +1,18 @@
+.responsiveGrid {
+position: relative;
+bottom: 40px;
+
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width :1023px) {
+ 
+    .responsiveGrid {
+        position: relative;
+        margin-left: -30px;
+         width: 96%;
+         bottom: 40px;
+        }
+
+   
+}

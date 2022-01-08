@@ -12,7 +12,7 @@ import { ShopTwoTone} from '@ant-design/icons';
 import  AppBar  from '../header/AppBar'
 import AutoPlaySlider from './AutoPlaySlider';
 import Searchbar from '../../Products/Searchbar'
-
+import Sidebar from '../header/Sidebar'
 
 function CenteredTabs() {
   const [SelectedTab, setSelectedTab] = React.useState(0);
@@ -23,22 +23,22 @@ function CenteredTabs() {
   
   return (
     <>
-  <div className='header'>
- 
- 
-  <NavbarMenu />
- 
-        <Tabs
-          value={SelectedTab}
+  <div className=''>
+
+  {/* <NavbarMenu /> */}
+{/* <Sidebar /> */}
+
+        {/* <Tabs */}
+           {/* value={SelectedTab}
           onChange={handleChange}
-          indicatorColor="primary"
-          textColor='inherit'
-          centered
-        >
-        <Tab label={<ShopTwoTone style={{fontSize:'30px'}}/>} style={{outline: "none", fontFamily:'initial' }} />
+           indicatorColor="primary"
+           textColor='inherit'
+          centered */}
+        {/* > */}
+        {/* <Tab label={<ShopTwoTone style={{fontSize:'30px'}}/>} style={{outline: "none", fontFamily:'initial' }} /> */}
         {/* <Tab label={<ShopTwoTone style={{fontSize:'30px'}}/>} style={{outline: "none", fontFamily:'initial' }} /> */}
         {/* <Tab label="Media" style={{ outline: "none" }} /> */}
-        </Tabs>
+        {/* </Tabs> */}
  
         </div>
         <br />

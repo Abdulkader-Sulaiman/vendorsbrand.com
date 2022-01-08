@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ImageSlider from '../../Products/ImageSlider';
 import firebase, {storage, db, auth  } from "../../firebase";
-import FlipMove from "react-flip-move";
 import UploadProduct from '../../Products/UploadProduct';
 
 export const imgUrl = UploadProduct.url;

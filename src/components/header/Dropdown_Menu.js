@@ -12,9 +12,9 @@ import firebase, { db, auth } from "../../firebase";
 import { Redirect } from "react-router-dom";
 // In this List User can Upload a Product or Post something
 import { useTranslation } from "react-i18next";
-
-
-
+import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
+import { CgAddR } from "react-icons/cg";
+import Button from '@mui/material/Button';
 
 const StyledMenu = withStyles({
     paper: {
@@ -66,7 +66,7 @@ firebase.auth().onAuthStateChanged((user) => {
     }
   });
 
-
+ 
 function CustomizedMenus() {
 
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -90,9 +90,17 @@ function CustomizedMenus() {
                 aria-haspopup="true"
                 onClick={handleClick}
             >
-                {/* <RocketOutlined style={{position:'left', fontSize: "32px" }} /> */}
+                
           
-          <p style={{position:'left' }} className="My_Store">{t("My Store")}</p>
+
+     
+
+      <Button style={{ color:'#ffff'}}>
+          <CgAddR style={{fontSize:'35px'}}/>
+         
+          </Button>
+
+
             </div>
 
             <StyledMenu
@@ -105,7 +113,7 @@ function CustomizedMenus() {
             
 
     <StyledMenuItem onClick={handleClose}>
-                    <ListItemIcon>
+                    <ListItemIcon >
                         {/* <PlusOutlined style={{fontSize:"25px"}} /> */}
                         <UploadProduct />
                     </ListItemIcon>

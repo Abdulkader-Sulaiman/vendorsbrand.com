@@ -5,7 +5,6 @@ import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import SettingsIcon from "@material-ui/icons/Settings";
 import { ref, useRef, useEffect, useState, Component } from "react";
-import { withFirestore } from "react-firestore";
 import firebase, { storage, db, auth } from "../../firebase";
 import "../../css/Settings.css";
 import UploadProduct from "../../Products/UploadProduct";
@@ -17,7 +16,7 @@ import { TextField } from "@material-ui/core";
 //     getGeocode,
 //     getLatLng,
 // } from "use-places-autocomplete";
-import useOnclickOutside from "react-cool-onclickoutside";
+
 import { Select } from "@material-ui/core";
 import { ButtonBase, Button } from "@material-ui/core";
 import { geolocated } from "react-geolocated";

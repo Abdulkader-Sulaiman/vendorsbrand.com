@@ -1,39 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import firebase from "@firebase/app";
 import "@firebase/firestore";
-import { FirestoreProvider } from "react-firestore";
-import {createStore, applyMiddleware, compose } from "redux";
-import rootRenderer from "./store/reducers/rootReducer"
-import { Provider } from "react-redux";
 import App from "./App";
-import thunk from "redux-thunk";
-import { reduxFirestore, getFirestore } from 'redux-firestore';
-import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
-import fbConfig from './firebase';
-import { ReactReduxFirebaseProvider } from 'react-redux-firebase'
 import "./i18n.js";
-import { useTranslation } from "react-i18next";
-
-
-
-const store = createStore(rootRenderer, 
-    compose (
-    applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
-    reduxFirestore(firebase, fbConfig)
-    
-    )
-);
-
-
+import  CurrentUserData from "./contexts/CurrentUserData"
 ReactDOM.render(
-    <FirestoreProvider firebase={firebase}>
     <React.StrictMode>
-       <Provider store={store}>
+     <CurrentUserData>
         <App />
-       
-        </Provider>
-        </React.StrictMode>
-    </FirestoreProvider>,
+        </CurrentUserData>
+        </React.StrictMode>,
     document.getElementById("root")
 );

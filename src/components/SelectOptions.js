@@ -5,13 +5,21 @@ import Select from "react-select";
 import { useTranslation } from "react-i18next";
 import '../css/Signup.css';
 
-const SelectBox = ({ options, name, onChange }) => {
+export const SelectBox = ({ options, name, onChange, selected}) => {
+  const [Label, SetLabel] = useState("");
   const [optionSelected, setSelectedOptions] = useState([]);
+
   const handleChange = (selected) => {
     onChange({ name, category: selected.value });
-    //console.log(selected)
+    // export default  Label = selected.label;
+    SetLabel(selected.label)
+   
     setSelectedOptions(selected);
+  
   };
+ 
+  console.log("From State", Label)
+  
 
   return (
     <Select
@@ -46,6 +54,7 @@ const SelectOptions = () => {
   //console.log(data);
   const categories = data.map((item) => ({ value: item.id, label: item.Name }));
   //console.log(categories);
+  
   return (
     <div className="app">
       <Form noValidate validated={validated}  id="select"> 
@@ -59,12 +68,9 @@ const SelectOptions = () => {
               name={"select1"}
               onChange={handleChange}
               id="select"
-             
             />
-           
-         
-        
       </Form>
+  
     </div>
   );
 };

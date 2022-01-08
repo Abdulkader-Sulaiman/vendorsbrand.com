@@ -1,7 +1,7 @@
 
 body {
-
-    
+    margin: 0;
+    padding:0;
 }
 
 .Home {
@@ -103,6 +103,26 @@ body {
     }
 }
 
+.wrapper {
+ max-height: 90px;
+ border: 1px solid #ccc;
+ display: flex;
+ overflow-x: auto;
+ position: relative;
+ top: 70px;
+
+}
+.wrapper::-webkit-scrollbar {
+   /* width:0
+    */
+}
+.wrapper .item {
+min-width: 110px;
+ 
+line-height:110px;
+background-color: #ddd;
+text-align: center;
+}
 
 
 @media only screen and (max-width: 680px){

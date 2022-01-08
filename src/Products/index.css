@@ -24,7 +24,11 @@
   }
 
  
-
+body {
+    background: 'red';
+    color: red;
+   
+}
 
   pre.demo-code {
     direction: ltr;

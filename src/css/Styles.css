@@ -1,0 +1,92 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+  }
+  
+  .test {
+    color: blueviolet;
+    background-color:grey
+  }
+
+  .MuiDrawer-paperAnchorDockedLeft {
+    background-color: red;
+    display: none;
+  }
+
+.toolbar {
+    position: relative;
+    float: left;
+}
+
+  .Dropdown {
+     float:left;
+     display: grid;
+     place-items:left;
+    
+  }
+ 
+  body {
+    background: red;
+  }
+
+  /* Extra small devices (phones, 600px and down) */
+  @media only screen and (max-width: 600px) {
+    .MuiDrawer-paperAnchorDockedLeft {
+      background-color: red;
+      display: none;
+      
+    }
+.tabsBox {
+    /* background-color:  #eee; */
+    display: grid;
+    /* place-items: start; */
+    
+}
+    .IconButton {
+      color: red;
+      background-color:red
+      }
+    
+
+    .IconButton {
+      color: blueviolet;
+      margin-left: auto;
+    }
+    body {
+      background: red;
+    }
+  }
+  
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+    body {
+      background: green;
+    }
+  
+    .Drawer {
+      color: red;
+      background-color: gray;
+    }
+  }
+  
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (min-width: 768px) {
+    body {
+      background: blue;
+    }
+  }
+  
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 992px) {
+    body {
+      background: orange;
+    }
+  }
+  
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  @media only screen and (min-width: 1200px) {
+    body {
+      background: pink;
+    }
+  }
+  

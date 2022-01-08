@@ -1,0 +1,40 @@
+
+.MenuContainer {
+    position: relative;
+    /* top:100px; */
+    display: grid;
+    place-items:center; 
+    left:120px
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .MenuContainer {
+    
+        position: relative;
+        /* top:100px; */
+        /* background-color: blue; */
+        /* right: 14px;
+        width: 40px; */
+        bottom: 27px;
+        left:20px;
+        padding:0px;
+        margin: 0;
+    }
+
+}
+
+.MenuBox {
+ 
+  
+}
+
+body {
+  
+    background-color: red;
+}
+
+#simple-tabpanel-1 {
+ backgroundColor:blue;
+}

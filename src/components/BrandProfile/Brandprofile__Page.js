@@ -1,4 +1,4 @@
-import React, { ref, useEffect, useState } from "react";
+import React, { ref, useEffect, useState, useContext } from "react";
 import "../../css/profile__Header.css";
 import EmojiFlagsIcon from "@material-ui/icons/EmojiFlags";
 import IconButton from "@material-ui/core/IconButton";
@@ -7,6 +7,23 @@ import HomeTabs from "./Dashboard";
 import firebase, { db, auth } from "../../firebase";
 import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { TestContext1 } from "../../contexts/ProfilesDataContext";
+import Sidebar from '../header/Sidebar'
+import { styled } from "@mui/material/styles";
+import Paper from "@mui/material/Paper";
+
+
+const Item = styled(Paper)(({ theme }) => ({
+    // ...theme.typography.body2,
+    background: 'none',
+    padding: theme.spacing(0),
+    textAlign: "center",
+    // minWidth: 100,
+    // minHeight: 100,
+    color: "#fff",
+  }));
+  
+
 
 function Brandprofile__Page() {
     const { uid } = useParams();
@@ -16,35 +33,35 @@ function Brandprofile__Page() {
     var user = firebase.auth().currentUser;
     const ref = firebase.firestore().collection("user.uid");
     const [Brands, SetBrands] = useState([]);
-    const [currentPost, setCurrentPost] = useState({});
+    // const [currentPost, setCurrentPost] = useState({});
     const { t } = useTranslation();
-
+    const { Username, profileData } = useContext(TestContext1);
     // let userId = firebase.auth().currentUser.uid;
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await db.collection(uid).doc("userId").get();
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         try {
+    //             const response = await db.collection(uid).doc("userId").get();
 
-                console.log("UID IS " + uid);
+    //             console.log("UID IS " + uid);
 
-                console.log("response", response);
+    //             console.log("response", response);
 
-                let data = { title: "not found" };
+    //             let data = { title: "not found" };
 
-                if (response.exists) {
-                    data = response.data();
-                }
+    //             if (response.exists) {
+    //                 data = response.data();
+    //             }
 
-                setCurrentPost(data);
-                setLoading(false);
-            } catch (err) {
-                console.error(err);
-            }
-        };
+    //             setCurrentPost(data);
+    //             setLoading(false);
+    //         } catch (err) {
+    //             console.error(err);
+    //         }
+    //     };
 
-        fetchData();
-    }, []);
+    //     fetchData();
+    // }, []);
 
     if (loading) {
         return <h1>Loading...</h1>;
@@ -52,8 +69,8 @@ function Brandprofile__Page() {
 
     return (
         <>
-            <div className="storebody">
-                <div className="site__header">
+            <div className="storebody" >
+                <div className="site__header" >
                     <div className="brand__Info">
                         <IconButton style={{ outline: "none" }}>
                             <EmojiFlagsIcon
@@ -67,7 +84,10 @@ function Brandprofile__Page() {
                                 color: "red",
                             }}
                         >
-                            {uid}
+                        <div style={{ position:'relative',top:'13px'}}>
+                        <h2 style={{ color: 'red'}}>{profileData.PageName}</h2>
+                        <h3>{profileData.Email}</h3>
+                        </div>
                         </h1>
 
                         {/* <h1 style={{color:'red'}}>{!loading && currentPost.Brandname}</h1> */}
@@ -83,7 +103,7 @@ function Brandprofile__Page() {
                                     fontFamily: "Arial, Helvetica, sans-serif",
                                 }}
                             >
-                                {t(!loading && currentPost.Store_type)}
+                                {t(!loading && profileData.Store_type)}
                             </h3>
                         ))
                     }

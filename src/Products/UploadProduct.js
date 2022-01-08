@@ -42,9 +42,10 @@ function UploadProduct() {
     const [Brandname, setBrandname] = useState("");
     const [ProductName, setProductName] = useState("");
     const [BName, setBName] = useState("");
-    const [currentBrandData, setCurrentBrandData] = useState({});
+    const [currentBrandData, SetCurrentBrandData] = useState({});
     const [ProdctLocation, setProdctLocation] = useState({});
-
+    const [currentPost, setCurrentPost] = useState({});
+    const userID = firebase.auth().currentUser.uid;
     const handleOpen = () => {
         setOpen(true);
     };
@@ -55,7 +56,6 @@ function UploadProduct() {
     function refrashPage() {
         document.location.reload();
     }
-
     const { t } = useTranslation();
     //   const ref = firebase.firestore().collection('user.uid');
 
@@ -77,27 +77,43 @@ function UploadProduct() {
     //     // eslint-disable-next-line
     //   }, []);
 
-    var userID = firebase.auth().currentUser.uid;
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await db.collection("users").doc(userID).get();
 
-                console.log("response", response);
-                let data = { title: "not found" };
 
-                if (response.exists) {
-                    data = response.data();
+ //aea
+ useEffect(() => {
+    const fetchData = () => {
+        try {
+        db.collection("SignUp-data")
+          .where("userId", "==", userID)
+        .get()
+        .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                // doc.data() is never undefined for query doc snapshots
+                console.log(doc.id, " => ", doc.data());
+                let data = { title: 'not found' };
+               
+                if (doc.exists) {
+                    data = doc.data();
                 }
-
-                setCurrentBrandData(data);
+                SetCurrentBrandData(data);
                 setLoading(false);
-            } catch (err) {
-                console.error(err);
-            }
-        };
-        fetchData();
-    }, []);
+
+            });
+        })
+                
+                // .doc('1p4PBe8nOHJ4zSOw3ZfH')
+                // .get();
+   
+        } catch(err) {
+            console.error(err);
+        }
+    };
+    fetchData();
+}, []);
+
+
+   
+    
 
     // get Store Location from DB
     // var x = currentBrandName.Brandname
@@ -176,9 +192,11 @@ function UploadProduct() {
                     db.collection("products").doc(docID).set({
                         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                         images: fileDownloadUrls,
-                        BName: currentBrandData.Brandname,
+                        // BName: currentBrandData.Brandname,
                         location_Geohash: currentBrandData.location_Geohash,
-                        ProdctLocation: currentBrandData.ProdctLocation,
+                        Location: currentBrandData.Location,
+                        PageName: currentBrandData.PageName,
+                        profileUID: currentBrandData.profileUID,
                         userId: userId,
                         docID: docID,
                         productName: ProductName,
@@ -362,6 +380,7 @@ function UploadProduct() {
                     </div>
                 </Fade>
             </Modal>
+ 
         </div>
     );
 }

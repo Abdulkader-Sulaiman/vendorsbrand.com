@@ -1,0 +1,15 @@
+div {
+    /* color: blue; */
+  }
+  
+  .sidbarAComponent p {
+    text-align: center;
+    font-size: 30px;
+    cursor: pointer;
+  }
+  
+  .sidbarAComponent p:hover {
+    color: skyblue;
+  
+  }
+  

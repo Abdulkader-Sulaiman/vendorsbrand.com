@@ -3,17 +3,23 @@
 .label {
  margin-top:15px
 }
- 
-#pageName {
+
+.pageName {
     width: 100%;
-    padding: 12px 20px;
+    padding: 10px 20px;
     margin: 8px 0;
     box-sizing: border-box;
 }
 
+#PhoneNumber {
+    width: 100%;
+    margin: 8px 0;
+}
+
+
 #Location_inp {
     width: 100%;
-    padding: 12px 20px;
+    padding: 10px 20px;
     margin: 8px 0;
     box-sizing: border-box;
     
@@ -30,7 +36,7 @@
 
 #Page_Type {
     width: 100%;
-    padding: 12px 20px;
+    padding: 10px 20px;
     margin: 8px 0;
     box-sizing: border-box;
 }
@@ -44,21 +50,21 @@
 
 #email {
     width: 100%;
-    padding: 12px 20px;
+    padding: 10px 20px;
     margin: 8px 0;
     box-sizing: border-box;
 }
 
 #password {
     width: 100%;
-    padding: 12px 20px;
+    padding: 10px 20px;
     margin: 8px 0;
     box-sizing: border-box;
 }
 
 #passwordConf {
     width: 100%;
-    padding: 12px 20px;
+    padding: 10px 20px;
     margin: 8px 0;
     box-sizing: border-box;
 }
@@ -73,15 +79,11 @@
     border-bottom: 2px solid rgb(24, 144, 255);
 }
 
-
-
-#pageName[type="text"] {
+.pageName[type="text"] {
     border: none;
     border-bottom: 2px solid rgb(24, 144, 255);
 }
 
-
- 
 
 #email[type="email"] {
     border: none;
@@ -97,6 +99,11 @@
     border: none;
     border-bottom: 2px solid rgb(24, 144, 255);
 }
+
+/* #PhoneNumber  {
+    border: none;
+    border-bottom: 2px solid rgb(24, 144, 255);
+} */
 
 #password[type="password"] {
     border: none;
